@@ -1,0 +1,8 @@
+﻿User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /automation.html
+Disallow: /affiliate-offenlegung.html
+
+Sitemap: https://mpufix.de/sitemap.xml
+

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">MPUFIX.de Markenzeichen</title>
+  <desc id="desc">Dynamisches MPUFIX Zeichen mit Straße, Haken und blau-violettem Akzent.</desc>
+  <defs>
+    <linearGradient id="road" x1="30" y1="24" x2="150" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07050d"/>
+      <stop offset="1" stop-color="#273047"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="24" y1="44" x2="155" y2="134" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5d2793"/>
+      <stop offset="1" stop-color="#548cca"/>
+    </linearGradient>
+  </defs>
+  <rect x="33" y="24" width="124" height="132" rx="26" fill="#fff"/>
+  <rect x="44" y="35" width="102" height="110" rx="22" fill="url(#road)"/>
+  <rect x="8" y="57" width="94" height="28" rx="14" fill="url(#signal)"/>
+  <rect x="21" y="103" width="101" height="28" rx="14" fill="url(#signal)"/>
+  <path d="M69 135c8-45 21-78 39-103" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M101 135c-5-39-2-73 9-101" fill="none" stroke="#f4f7fb" stroke-width="4" stroke-linecap="round" stroke-dasharray="11 13"/>
+  <path d="M84 84l22 23 44-52" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="149" cy="55" r="7" fill="#548cca"/>
+</svg>
