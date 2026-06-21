@@ -74,6 +74,60 @@ p { color: var(--text); }
   width: 100%;
 }
 
+.privacy-notice {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(231, 235, 244, 0.96);
+  border-radius: 18px;
+  bottom: 18px;
+  box-shadow: 0 22px 58px rgba(38, 51, 88, 0.18);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr auto;
+  left: 18px;
+  max-width: 760px;
+  padding: 16px;
+  position: fixed;
+  right: 18px;
+  transform: translateZ(0);
+  z-index: 180;
+}
+.privacy-notice strong {
+  color: var(--ink);
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 3px;
+}
+.privacy-notice p {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+.privacy-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+.privacy-actions a {
+  color: var(--purple-deep);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+.privacy-actions button {
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 14px;
+}
+
 .site-header {
   align-items: center;
   background: rgba(255, 255, 255, 0.92);
@@ -1584,6 +1638,16 @@ input:focus, select:focus, textarea:focus {
     background: linear-gradient(135deg, var(--purple), var(--blue));
     border-color: transparent;
     color: #fff;
+  }
+  .privacy-notice {
+    bottom: 12px;
+    grid-template-columns: 1fr;
+    left: 10px;
+    padding: 14px;
+    right: 10px;
+  }
+  .privacy-actions {
+    justify-content: space-between;
   }
   .hero-grid, .split-section, .solution-section, .proof-layout, .risk-section, .contact-section, .trust-section, .online-room, .intro-grid {
     grid-template-columns: 1fr;

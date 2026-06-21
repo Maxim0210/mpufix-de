@@ -53,6 +53,27 @@ const contactMessages = {
   }
 };
 
+const privacyNoticeText = {
+  de: {
+    title: "Datenschutz-Hinweis",
+    text: "MPUFIX nutzt aktuell keine Analyse- oder Marketing-Cookies. Für notwendige Funktionen kann dein Browser lokale Einstellungen speichern.",
+    accept: "Verstanden",
+    privacy: "Datenschutz"
+  },
+  en: {
+    title: "Privacy notice",
+    text: "MPUFIX currently does not use analytics or marketing cookies. Your browser may store local settings for necessary functions.",
+    accept: "Understood",
+    privacy: "Privacy"
+  },
+  ru: {
+    title: "Уведомление о данных",
+    text: "MPUFIX сейчас не использует аналитические или маркетинговые cookies. Для необходимых функций браузер может сохранять локальные настройки.",
+    accept: "Понятно",
+    privacy: "Защита данных"
+  }
+};
+
 function getCurrentLanguage() {
   const path = window.location.pathname.toLowerCase();
   if (path.endsWith("/ru.html")) return "ru";
@@ -78,6 +99,42 @@ function renderLanguageControls(activeLang = getCurrentLanguage()) {
 
 function setupLanguageSwitcher() {
   renderLanguageControls(getCurrentLanguage());
+}
+
+function setupPrivacyNotice() {
+  const storageKey = "mpufix_privacy_notice_v1";
+  try {
+    if (window.localStorage?.getItem(storageKey) === "accepted") return;
+  } catch (error) {
+    return;
+  }
+
+  const lang = getCurrentLanguage();
+  const copy = privacyNoticeText[lang] || privacyNoticeText.de;
+  const notice = document.createElement("aside");
+  notice.className = "privacy-notice";
+  notice.setAttribute("role", "dialog");
+  notice.setAttribute("aria-label", copy.title);
+  notice.innerHTML = `
+    <div>
+      <strong>${copy.title}</strong>
+      <p>${copy.text}</p>
+    </div>
+    <div class="privacy-actions">
+      <a href="${normalizeLocalHref("/datenschutz.html")}">${copy.privacy}</a>
+      <button type="button">${copy.accept}</button>
+    </div>
+  `;
+  document.body.appendChild(notice);
+
+  notice.querySelector("button")?.addEventListener("click", () => {
+    try {
+      window.localStorage?.setItem(storageKey, "accepted");
+    } catch (error) {
+      // Ignore storage errors and still close the notice for this session.
+    }
+    notice.remove();
+  });
 }
 
 function setMenuButtonLabel(button) {
@@ -126,6 +183,7 @@ function setupMobileMenu() {
 
 setupMobileMenu();
 setupLanguageSwitcher();
+setupPrivacyNotice();
 const revealTargets = [
   ".hero-signal",
   ".benefit-strip article",
