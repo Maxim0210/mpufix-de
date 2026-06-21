@@ -35,6 +35,24 @@ const languageLinks = [
   { lang: "en", label: "English", href: "/en.html" }
 ];
 
+const contactMessages = {
+  de: {
+    sending: "Wird gesendet...",
+    success: "Danke. Deine Anfrage ist angekommen. Wenn es eilig ist, schreib zusätzlich direkt per WhatsApp.",
+    fallback: "Die Anfrage ist lokal vorbereitet. Falls nichts ankommt, nutze bitte direkt WhatsApp."
+  },
+  en: {
+    sending: "Sending...",
+    success: "Thank you. Your request has arrived. If it is urgent, please also write directly on WhatsApp.",
+    fallback: "Your request was prepared locally. If nothing arrives, please use WhatsApp directly."
+  },
+  ru: {
+    sending: "Отправляется...",
+    success: "Спасибо. Ваш запрос получен. Если вопрос срочный, напишите дополнительно напрямую в WhatsApp.",
+    fallback: "Запрос подготовлен локально. Если он не отправится, пожалуйста, напишите напрямую в WhatsApp."
+  }
+};
+
 function getCurrentLanguage() {
   const path = window.location.pathname.toLowerCase();
   if (path.endsWith("/ru.html")) return "ru";
@@ -252,7 +270,8 @@ document.querySelector("#contactForm")?.addEventListener("submit", async (event)
   leadState.contacts.unshift({ ...data, createdAt: new Date().toISOString() });
   leadState.contacts = leadState.contacts.slice(0, 30);
   saveState();
-  if (result) result.textContent = "Wird gesendet...";
+  const messages = contactMessages[getCurrentLanguage()] || contactMessages.de;
+  if (result) result.textContent = messages.sending;
 
   try {
     await fetch("/", {
@@ -260,10 +279,10 @@ document.querySelector("#contactForm")?.addEventListener("submit", async (event)
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString()
     });
-    if (result) result.textContent = "Danke. Deine Anfrage ist angekommen. Wenn es eilig ist, schreib zusätzlich direkt per WhatsApp.";
+    if (result) result.textContent = messages.success;
     form.reset();
   } catch (error) {
-    if (result) result.textContent = "Die Anfrage ist lokal vorbereitet. Falls nichts ankommt, nutze bitte direkt WhatsApp.";
+    if (result) result.textContent = messages.fallback;
     updateWhatsappLink(data.nachricht || "Ich möchte meinen MPU-Fall einschätzen lassen.");
   }
 });
