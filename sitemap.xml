@@ -2,38 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mpufix.de/</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://mpufix.de/ru.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/en.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mpufix.de/ueber-mich.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/mpu-ablauf.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/mpu-kosten.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/abstinenznachweis.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mpufix.de/datenschutz.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://mpufix.de/impressum.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://mpufix.de/agb.html</loc>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.2</priority>
   </url>
 </urlset>

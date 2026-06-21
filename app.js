@@ -7,288 +7,107 @@ try {
 }
 leadState.contacts ||= [];
 const WHATSAPP_NUMBER = "491624710700";
-let currentLanguage = "de";
 
 const languageConfig = {
   de: {
     label: "Wir sprechen und zeigen die Seite auf:",
-    active: "Deutsch",
     menu: "Menü",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen"
   },
   ru: {
     label: "Мы говорим и показываем сайт на:",
-    active: "Русский",
     menu: "Меню",
     openMenu: "Открыть меню",
     closeMenu: "Закрыть меню"
   },
   en: {
     label: "We speak and show this page in:",
-    active: "English",
     menu: "Menu",
     openMenu: "Open menu",
     closeMenu: "Close menu"
   }
 };
 
-const pageTranslations = {
-  de: {
-    "nav.situationen": "Situationen",
-    "nav.system": "System",
-    "nav.nachweise": "Nachweise",
-    "nav.pakete": "Pakete",
-    "nav.about": "Über mich",
-    "nav.blog": "Blog",
-    "nav.faq": "FAQ",
-    "nav.kontakt": "Kontakt",
-    "header.cta": "Gratis MPU-Check",
-    "hero.eyebrow": "MPU Beratung online in Deutschland",
-    "hero.signalTitle": "Gratis MPU-Check",
-    "hero.signalText": "klare Ersteinschätzung in wenigen Minuten",
-    "hero.h1": "Schnell und strukturiert zurück zum Führerschein.",
-    "hero.text": "MPUFIX bringt Ordnung in deinen MPU-Fall: Anlass verstehen, Nachweise planen, Online-Kurs nutzen und im Gespräch klar erklären, was sich wirklich verändert hat.",
-    "hero.li1": "Vorbereitung bei Alkohol, Drogen, Cannabis, Punkten und Straftaten",
-    "hero.li2": "Online-Raum mit Videos, Checklisten und klaren Schritten",
-    "hero.li3": "Persönliche Begleitung möglich, verständlich und Schritt für Schritt",
-    "hero.primary": "Kostenlose Ersteinschätzung per WhatsApp",
-    "hero.secondary": "MPU-Fall in 2 Minuten einordnen",
-    "hero.proof1": "Seriöse Vorbereitung",
-    "hero.proof2": "Deutsch · Русский · English",
-    "hero.proof3": "Deutschlandweit online",
-    "contact.eyebrow": "Kontakt",
-    "contact.h2": "Lass uns gemeinsam auf deinen Fall schauen.",
-    "contact.text": "Schreib kurz, warum du zur MPU musst, ob schon ein Termin steht und ob Nachweise vorhanden sind. Danach bekommst du eine ehrliche erste Einschätzung.",
-    "contact.whatsapp": "Per WhatsApp schreiben",
-    "contact.call": "Direkt anrufen",
-    "contact.email": "E-Mail senden",
-    "chat.title": "MPUFIX Assistentin",
-    "chat.subtitle": "Beantwortet Kursfragen und bringt dich zum passenden nächsten Schritt.",
-    "chat.costs": "Kosten",
-    "chat.package": "Paket",
-    "chat.proofs": "Nachweise",
-    "chat.urgent": "Eilig",
-    "chat.placeholder": "Frage kurz eingeben",
-    "chat.send": "Senden",
-    "chat.whatsapp": "Zu WhatsApp wechseln"
-  },
-  ru: {
-    "nav.situationen": "Ситуации",
-    "nav.system": "Система",
-    "nav.nachweise": "Документы",
-    "nav.pakete": "Пакеты",
-    "nav.about": "Обо мне",
-    "nav.blog": "Блог",
-    "nav.faq": "FAQ",
-    "nav.kontakt": "Контакт",
-    "header.cta": "Бесплатная проверка MPU",
-    "hero.eyebrow": "Онлайн-подготовка к MPU в Германии",
-    "hero.signalTitle": "Бесплатная MPU-проверка",
-    "hero.signalText": "понятная первичная оценка за несколько минут",
-    "hero.h1": "Быстро и структурированно обратно к водительским правам.",
-    "hero.text": "MPUFIX помогает навести порядок в твоем случае MPU: понять причину, спланировать подтверждения, использовать онлайн-курс и уверенно объяснить на разговоре, что действительно изменилось.",
-    "hero.li1": "Подготовка при алкоголе, наркотиках, каннабисе, баллах и нарушениях",
-    "hero.li2": "Онлайн-кабинет с видео, чек-листами и понятными шагами",
-    "hero.li3": "Личное сопровождение, простым языком и шаг за шагом",
-    "hero.primary": "Бесплатная оценка через WhatsApp",
-    "hero.secondary": "Оценить MPU-случай за 2 минуты",
-    "hero.proof1": "Серьезная подготовка",
-    "hero.proof2": "Deutsch · Русский · English",
-    "hero.proof3": "Онлайн по всей Германии",
-    "contact.eyebrow": "Контакт",
-    "contact.h2": "Давай вместе посмотрим на твой случай.",
-    "contact.text": "Коротко напиши, почему тебе нужна MPU, есть ли уже дата и есть ли подтверждения. После этого ты получишь честную первичную оценку.",
-    "contact.whatsapp": "Написать в WhatsApp",
-    "contact.call": "Позвонить напрямую",
-    "contact.email": "Отправить e-mail",
-    "chat.title": "Ассистентка MPUFIX",
-    "chat.subtitle": "Отвечает на вопросы о курсе и ведет к правильному следующему шагу.",
-    "chat.costs": "Цены",
-    "chat.package": "Пакет",
-    "chat.proofs": "Документы",
-    "chat.urgent": "Срочно",
-    "chat.placeholder": "Коротко задай вопрос",
-    "chat.send": "Отправить",
-    "chat.whatsapp": "Перейти в WhatsApp"
-  },
-  en: {
-    "nav.situationen": "Situations",
-    "nav.system": "System",
-    "nav.nachweise": "Proofs",
-    "nav.pakete": "Packages",
-    "nav.about": "About me",
-    "nav.blog": "Blog",
-    "nav.faq": "FAQ",
-    "nav.kontakt": "Contact",
-    "header.cta": "Free MPU check",
-    "hero.eyebrow": "Online MPU preparation in Germany",
-    "hero.signalTitle": "Free MPU check",
-    "hero.signalText": "clear first assessment in a few minutes",
-    "hero.h1": "Back to your driving licence with a clear structure.",
-    "hero.text": "MPUFIX brings structure into your MPU case: understand the reason, plan the proof, use the online course and explain clearly what has really changed.",
-    "hero.li1": "Preparation for alcohol, drugs, cannabis, points and offences",
-    "hero.li2": "Online room with videos, checklists and clear steps",
-    "hero.li3": "Personal support available, clear and step by step",
-    "hero.primary": "Free first assessment via WhatsApp",
-    "hero.secondary": "Check your MPU case in 2 minutes",
-    "hero.proof1": "Serious preparation",
-    "hero.proof2": "Deutsch · Русский · English",
-    "hero.proof3": "Online across Germany",
-    "contact.eyebrow": "Contact",
-    "contact.h2": "Let us look at your case together.",
-    "contact.text": "Briefly write why you need the MPU, whether a date is already set and whether proof is available. Then you receive an honest first assessment.",
-    "contact.whatsapp": "Write via WhatsApp",
-    "contact.call": "Call directly",
-    "contact.email": "Send e-mail",
-    "chat.title": "MPUFIX assistant",
-    "chat.subtitle": "Answers course questions and guides you to the right next step.",
-    "chat.costs": "Costs",
-    "chat.package": "Package",
-    "chat.proofs": "Proofs",
-    "chat.urgent": "Urgent",
-    "chat.placeholder": "Type a short question",
-    "chat.send": "Send",
-    "chat.whatsapp": "Open WhatsApp"
-  }
-};
-
-const translationTargets = [
-  [".main-nav a[href*='situationen'], .main-nav a[href='#situationen']", "nav.situationen"],
-  [".main-nav a[href*='system'], .main-nav a[href='#system']", "nav.system"],
-  [".main-nav a[href*='nachweise'], .main-nav a[href='#nachweise']", "nav.nachweise"],
-  [".main-nav a[href*='pakete'], .main-nav a[href='#pakete']", "nav.pakete"],
-  [".main-nav a[href*='ueber-mich']", "nav.about"],
-  [".main-nav a[href*='blog']", "nav.blog"],
-  [".main-nav a[href*='faq'], .main-nav a[href='#faq']", "nav.faq"],
-  [".main-nav a[href*='kontakt'], .main-nav a[href='#kontakt']", "nav.kontakt"],
-  [".header-cta", "header.cta"],
-  [".hero .eyebrow", "hero.eyebrow"],
-  [".hero-signal strong", "hero.signalTitle"],
-  [".hero-signal small", "hero.signalText"],
-  [".hero-copy h1", "hero.h1"],
-  [".hero-text", "hero.text"],
-  [".hero-checks li:nth-child(1)", "hero.li1"],
-  [".hero-checks li:nth-child(2)", "hero.li2"],
-  [".hero-checks li:nth-child(3)", "hero.li3"],
-  [".hero-actions .button.primary", "hero.primary"],
-  [".hero-actions .button.secondary", "hero.secondary"],
-  [".hero-proofline span:nth-child(1)", "hero.proof1"],
-  [".hero-proofline span:nth-child(2)", "hero.proof2"],
-  [".hero-proofline span:nth-child(3)", "hero.proof3"],
-  [".contact-copy .eyebrow", "contact.eyebrow"],
-  [".contact-copy h2", "contact.h2"],
-  [".contact-copy > p", "contact.text"],
-  [".contact-actions .button:nth-child(1)", "contact.whatsapp"],
-  [".contact-actions .button:nth-child(2)", "contact.call"],
-  [".contact-actions .button:nth-child(3)", "contact.email"],
-  [".chat-head strong", "chat.title"],
-  [".chat-head span", "chat.subtitle"],
-  [".quick-questions button:nth-child(1)", "chat.costs"],
-  [".quick-questions button:nth-child(2)", "chat.package"],
-  [".quick-questions button:nth-child(3)", "chat.proofs"],
-  [".quick-questions button:nth-child(4)", "chat.urgent"],
-  [".chat-form button", "chat.send"],
-  ["#whatsappLink", "chat.whatsapp"]
+const languageLinks = [
+  { lang: "de", label: "Deutsch", href: "/" },
+  { lang: "ru", label: "Русский", href: "/ru.html" },
+  { lang: "en", label: "English", href: "/en.html" }
 ];
 
-function getSavedLanguage() {
-  let lang = currentLanguage;
-  try {
-    lang = window.localStorage?.getItem("mpufix_language") || currentLanguage;
-  } catch (error) {
-    lang = currentLanguage;
-  }
-  return ["de", "ru", "en"].includes(lang) ? lang : "de";
+function getCurrentLanguage() {
+  const path = window.location.pathname.toLowerCase();
+  if (path.endsWith("/ru.html")) return "ru";
+  if (path.endsWith("/en.html")) return "en";
+  return document.documentElement.lang?.slice(0, 2) || "de";
 }
 
-function renderLanguageControls(activeLang) {
+function normalizeLocalHref(href) {
+  if (!window.location.protocol.startsWith("file")) return href;
+  if (href === "/") return "index.html";
+  return href.replace("/", "");
+}
+
+function renderLanguageControls(activeLang = getCurrentLanguage()) {
   document.querySelectorAll(".language-badge, .mobile-language-strip").forEach((wrap) => {
     const config = languageConfig[activeLang] || languageConfig.de;
-    wrap.innerHTML = `
-      <span class="language-label">${config.label}</span>
-      <button type="button" data-lang="de">Deutsch</button>
-      <button type="button" data-lang="ru">Русский</button>
-      <button type="button" data-lang="en">English</button>
-    `;
-    wrap.querySelectorAll("[data-lang]").forEach((button) => {
-      const isActive = button.dataset.lang === activeLang;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-    });
+    const links = languageLinks.map((item) => `
+      <a href="${normalizeLocalHref(item.href)}" hreflang="${item.lang}" class="${item.lang === activeLang ? "is-active" : ""}">${item.label}</a>
+    `).join("");
+    wrap.innerHTML = `<span class="language-label">${config.label}</span>${links}`;
   });
-}
-
-function applyLanguage(lang) {
-  const selectedLang = ["de", "ru", "en"].includes(lang) ? lang : "de";
-  currentLanguage = selectedLang;
-  try {
-    window.localStorage?.setItem("mpufix_language", selectedLang);
-  } catch (error) {
-    // Language switching still works for the current page when storage is unavailable.
-  }
-  document.documentElement.lang = selectedLang === "de" ? "de" : selectedLang;
-  const translations = pageTranslations[selectedLang] || pageTranslations.de;
-
-  translationTargets.forEach(([selector, key]) => {
-    document.querySelectorAll(selector).forEach((element) => {
-      if (translations[key]) element.textContent = translations[key];
-    });
-  });
-
-  const chatInput = document.querySelector(".chat-form input[name='message']");
-  if (chatInput && translations["chat.placeholder"]) {
-    chatInput.placeholder = translations["chat.placeholder"];
-  }
-
-  document.querySelectorAll(".menu-toggle").forEach((button) => {
-    const isOpen = document.body.classList.contains("menu-open");
-    button.lastChild.textContent = languageConfig[selectedLang].menu;
-    button.setAttribute("aria-label", isOpen ? languageConfig[selectedLang].closeMenu : languageConfig[selectedLang].openMenu);
-  });
-
-  renderLanguageControls(selectedLang);
 }
 
 function setupLanguageSwitcher() {
-  document.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-lang]");
-    if (!button) return;
-    applyLanguage(button.dataset.lang);
-  });
-  applyLanguage(getSavedLanguage());
+  renderLanguageControls(getCurrentLanguage());
+}
+
+function setMenuButtonLabel(button) {
+  const lang = getCurrentLanguage();
+  const config = languageConfig[lang] || languageConfig.de;
+  const label = button.querySelector(".menu-toggle-text");
+  if (label) label.textContent = config.menu;
+  const isOpen = document.body.classList.contains("menu-open");
+  button.setAttribute("aria-label", isOpen ? config.closeMenu : config.openMenu);
 }
 
 function setupMobileMenu() {
-  document.querySelectorAll(".site-header").forEach((header) => {
+  document.querySelectorAll(".site-header").forEach((header, index) => {
     const nav = header.querySelector(".main-nav");
-    if (!nav || header.querySelector(".menu-toggle")) return;
-    const button = document.createElement("button");
-    button.className = "menu-toggle";
-    button.type = "button";
-    button.setAttribute("aria-controls", "mainNav");
+    if (!nav) return;
+
+    let button = header.querySelector(".menu-toggle");
+    if (!button) {
+      button = document.createElement("button");
+      button.className = "menu-toggle";
+      button.type = "button";
+      button.innerHTML = "<span class=\"menu-lines\" aria-hidden=\"true\"></span><span class=\"menu-toggle-text\">Menü</span>";
+      header.insertBefore(button, nav);
+    }
+
+    nav.id ||= `mainNav-${index + 1}`;
+    button.setAttribute("aria-controls", nav.id);
     button.setAttribute("aria-expanded", "false");
-    button.innerHTML = "<span aria-hidden=\"true\"></span>Menü";
-    nav.id ||= "mainNav";
-    header.insertBefore(button, header.querySelector(".header-cta") || nav.nextSibling);
+    setMenuButtonLabel(button);
+
     button.addEventListener("click", () => {
       const nextOpen = !document.body.classList.contains("menu-open");
       document.body.classList.toggle("menu-open", nextOpen);
       button.setAttribute("aria-expanded", String(nextOpen));
-      const lang = getSavedLanguage();
-      button.setAttribute("aria-label", nextOpen ? languageConfig[lang].closeMenu : languageConfig[lang].openMenu);
+      setMenuButtonLabel(button);
     });
+
     nav.addEventListener("click", (event) => {
       if (!event.target.closest("a")) return;
       document.body.classList.remove("menu-open");
       button.setAttribute("aria-expanded", "false");
+      setMenuButtonLabel(button);
     });
   });
 }
 
 setupMobileMenu();
 setupLanguageSwitcher();
-
 const revealTargets = [
   ".hero-signal",
   ".benefit-strip article",
@@ -366,7 +185,7 @@ if (zoomButtons.length) {
   lightbox.setAttribute("aria-label", "Nachweis vergrößert anzeigen");
   lightbox.innerHTML = `
     <div class="image-lightbox-panel">
-      <button class="image-lightbox-close" type="button" aria-label="Ansicht schließen">×</button>
+      <button class="image-lightbox-close" type="button" aria-label="Ansicht schließen">&times;</button>
       <img alt="">
     </div>
   `;
@@ -457,7 +276,7 @@ function botReply(message) {
   const text = message.toLowerCase();
 
   if (includesAny(text, ["preis", "kosten", "kostet", "paket", "399", "899", "1999"])) {
-    return { text: "Es gibt drei klare Wege: 399 € für den Videozugang, 899 € mit 2 persönlichen Gesprächen und 1.999 € für 10 Online-Termine. Wenn du nicht nur irgendwas schauen willst, sondern deinen Fall wirklich sicher einordnen möchtest, ist das 899-€-Paket meistens der stärkste Einstieg. Soll ich dich direkt zu WhatsApp weiterleiten?", escalate: false };
+    return { text: "Es gibt drei klare Wege: 399 EUR für den Videozugang, 899 EUR mit 2 persönlichen Gesprächen und 1.999 EUR für 10 Online-Termine. Wenn du nicht nur irgendwas schauen willst, sondern deinen Fall wirklich sauber einordnen möchtest, ist das 899-EUR-Paket meistens der stärkste Einstieg. Soll ich dich direkt zu WhatsApp weiterleiten?", escalate: false };
   }
   if (includesAny(text, ["welches paket", "passt", "empfehlung", "starten", "anfangen"])) {
     return { text: "Wenn dein Fall einfach ist und du selbstständig arbeitest, reicht oft der Videozugang. Wenn du unsicher bist, Nachweise klären musst oder bald Termin hast, ist persönliche Begleitung deutlich sinnvoller. Der schnellste Weg: Schreib kurz per WhatsApp, warum du zur MPU musst. Dann bekommst du eine ehrliche Einschätzung, ohne Verkaufsdruck.", escalate: true };
@@ -475,7 +294,7 @@ function botReply(message) {
     return { text: "Ob Abstinenznachweise nötig sind, hängt stark vom Einzelfall ab. Falsch geplant kostet das Zeit und Geld. Schreib per WhatsApp, worum es geht und welche Nachweise du schon hast. Dann bekommst du eine klare Richtung.", escalate: true };
   }
   if (includesAny(text, ["punkte", "blitzer", "geschwindigkeit", "rotlicht"])) {
-    return { text: "Bei Punkten geht es darum, dass deine Veränderung nachvollziehbar wirkt: Risikomuster, Einsicht, neue Regeln und Alltag. Der 899-€-Plan passt oft besser als nur Videos, weil deine persönliche Erklärung entscheidend ist.", escalate: false };
+    return { text: "Bei Punkten geht es darum, dass deine Veränderung nachvollziehbar wirkt: Risikomuster, Einsicht, neue Regeln und Alltag. Der 899-EUR-Plan passt oft besser als nur Videos, weil deine persönliche Erklärung entscheidend ist.", escalate: false };
   }
   if (includesAny(text, ["termin", "bald", "morgen", "woche", "frist", "eilig"])) {
     return { text: "Wenn dein Termin bald ist, bitte nicht weiter raten. Dann zählt zuerst eine Risikoanalyse: Termin, Anlass, Nachweise, Gutachten oder Akte. Schreib sofort per WhatsApp, damit klar ist, was noch realistisch machbar ist.", escalate: true };
@@ -584,7 +403,7 @@ function showRiskResult() {
   if (riskResultTitle) riskResultTitle.textContent = result.title;
   if (riskResultText) riskResultText.textContent = result.text;
   if (riskWhatsapp) {
-    const text = `Hallo, ich habe den MPU-Risiko-Check gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich möchte meinen Fall einschätzen lassen.`;
+    const text = `Hallo, ich habe den MPU-Risiko-Check gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich m\u00f6chte meinen Fall einsch\u00e4tzen lassen.`;
     riskWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
   if (riskResult) riskResult.hidden = false;
