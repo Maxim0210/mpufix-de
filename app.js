@@ -184,6 +184,68 @@ function setupMobileMenu() {
 setupMobileMenu();
 setupLanguageSwitcher();
 setupPrivacyNotice();
+
+function setupMpuTools() {
+  const costButton = document.getElementById("calculateCosts");
+  if (costButton) {
+    costButton.addEventListener("click", () => {
+      const reason = document.getElementById("costReason")?.value || "points";
+      const prep = Number(document.getElementById("costPrep")?.value || 0);
+      const hair = Math.max(0, Number(document.getElementById("hairCount")?.value || 0));
+      const urine = Math.max(0, Number(document.getElementById("urineCount")?.value || 0));
+      const ranges = {
+        points: [350, 550],
+        alcohol: [450, 750],
+        drugs: [450, 750],
+        mixed: [600, 950]
+      };
+      const [baseMin, baseMax] = ranges[reason] || ranges.points;
+      const min = baseMin + prep + hair * 200 + urine * 50;
+      const max = baseMax + prep + hair * 300 + urine * 100;
+      const result = document.getElementById("costResult");
+      if (result) {
+        result.innerHTML = `<span>Grobe Orientierung</span><strong>${min.toLocaleString("de-DE")} bis ${max.toLocaleString("de-DE")} Euro</strong><p>Das ist keine verbindliche Preisangabe. Entscheidend sind Anlass, Fragestellung, Nachweise und die gewählte Vorbereitung.</p>`;
+      }
+    });
+  }
+
+  const abstinenceButton = document.getElementById("calculateAbstinence");
+  if (abstinenceButton) {
+    abstinenceButton.addEventListener("click", () => {
+      const startValue = document.getElementById("abstinenceStart")?.value;
+      const months = Number(document.getElementById("abstinenceMonths")?.value || 0);
+      const topic = document.getElementById("abstinenceTopic")?.value || "dein Thema";
+      const result = document.getElementById("abstinenceResult");
+      if (!startValue || !months || !result) return;
+      const endDate = new Date(`${startValue}T12:00:00`);
+      endDate.setMonth(endDate.getMonth() + months);
+      const formatted = endDate.toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" });
+      result.innerHTML = `<span>Grobe Planung</span><strong>bis etwa ${formatted}</strong><p>Für ${topic} solltest du vor dem Start klären, welche Nachweisform akzeptiert wird und ob der Zeitraum zu deinem MPU-Termin passt.</p>`;
+    });
+  }
+
+  const readinessButton = document.getElementById("calculateReadiness");
+  if (readinessButton) {
+    readinessButton.addEventListener("click", () => {
+      const checks = [...document.querySelectorAll("#mpuQuestionCheck input[type='checkbox']")];
+      const score = checks.filter((item) => item.checked).length;
+      const result = document.getElementById("readinessResult");
+      if (!result) return;
+      let title = "Noch nicht stabil genug.";
+      let text = "Deine Antworten haben wahrscheinlich noch Lücken. Starte mit Struktur, bevor du dich auf den MPU-Termin verlässt.";
+      if (score >= 6) {
+        title = "Gute Grundlage.";
+        text = "Du hast viele Kernpunkte vorbereitet. Jetzt geht es darum, die Antworten persönlich, konkret und nicht auswendig klingen zu lassen.";
+      } else if (score >= 4) {
+        title = "Ansatz ist da, aber noch unsicher.";
+        text = "Einige wichtige Punkte sind vorhanden. Die größten Risiken liegen meist bei Auslösern, Rückfallplan und glaubwürdiger Veränderung.";
+      }
+      result.innerHTML = `<span>${score} von ${checks.length} Punkten</span><strong>${title}</strong><p>${text}</p>`;
+    });
+  }
+}
+
+setupMpuTools();
 const revealTargets = [
   ".hero-signal",
   ".benefit-strip article",
