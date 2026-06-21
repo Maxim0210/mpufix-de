@@ -133,6 +133,9 @@ p { color: var(--text); }
 .language-badge span + span {
   border-left: 1px solid var(--line);
 }
+.mobile-language-strip {
+  display: none;
+}
 .header-cta {
   background: linear-gradient(135deg, var(--purple), var(--blue));
   border-radius: 999px;
@@ -1342,6 +1345,60 @@ input:focus, select:focus, textarea:focus {
   width: auto;
 }
 
+.legal-page {
+  padding-top: clamp(34px, 5vw, 72px);
+}
+.legal-layout {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr);
+}
+.legal-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 18px 44px rgba(35, 54, 91, 0.08);
+  padding: clamp(22px, 4vw, 40px);
+}
+.legal-card h2 {
+  font-size: 24px;
+  margin-top: 30px;
+}
+.legal-card h2:first-child {
+  margin-top: 0;
+}
+.legal-card p,
+.legal-card li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+.legal-card strong {
+  color: var(--text);
+}
+.legal-note {
+  background: linear-gradient(135deg, rgba(96, 58, 171, 0.08), rgba(77, 139, 204, 0.1));
+  border: 1px solid rgba(96, 58, 171, 0.16);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 18px;
+}
+.legal-side {
+  align-self: start;
+  background: #f8faff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  position: sticky;
+  top: 98px;
+}
+.legal-side a {
+  color: var(--purple);
+  display: block;
+  font-weight: 800;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
 .page-hero, .article-page {
   margin: 0 auto;
   max-width: 1060px;
@@ -1407,6 +1464,12 @@ input:focus, select:focus, textarea:focus {
   .hero-grid, .split-section, .solution-section, .proof-layout, .risk-section, .contact-section, .trust-section, .online-room, .intro-grid {
     grid-template-columns: 1fr;
   }
+  .legal-layout {
+    grid-template-columns: 1fr;
+  }
+  .legal-side {
+    position: static;
+  }
   .hero {
     min-height: auto;
     padding-top: 44px;
@@ -1467,6 +1530,29 @@ input:focus, select:focus, textarea:focus {
   }
   .language-badge {
     display: none;
+  }
+  .mobile-language-strip {
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px 10px;
+    position: sticky;
+    top: 67px;
+    z-index: 40;
+  }
+  .mobile-language-strip span {
+    background: #f7f9fd;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    padding: 8px 10px;
+    white-space: nowrap;
   }
   .hero-text {
     font-size: 17px;
