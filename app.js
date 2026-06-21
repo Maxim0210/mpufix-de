@@ -294,8 +294,8 @@ function includesAny(text, words) {
 function botReply(message) {
   const text = message.toLowerCase();
 
-  if (includesAny(text, ["preis", "kosten", "kostet", "paket", "399", "899", "1999"])) {
-    return { text: "Es gibt drei klare Wege: 399 EUR für den Videozugang, 899 EUR mit 2 persönlichen Gesprächen und 1.999 EUR für 10 Online-Termine. Wenn du nicht nur irgendwas schauen willst, sondern deinen Fall wirklich sauber einordnen möchtest, ist das 899-EUR-Paket meistens der stärkste Einstieg. Soll ich dich direkt zu WhatsApp weiterleiten?", escalate: false };
+  if (includesAny(text, ["preis", "kosten", "kostet", "paket", "499", "899", "1999"])) {
+    return { text: "Es gibt drei klare Wege: 499 EUR für den Videozugang, 899 EUR mit 2 persönlichen Gesprächen und 1.999 EUR für 10 Online-Termine. Wenn du nicht nur irgendwas schauen willst, sondern deinen Fall wirklich sauber einordnen möchtest, ist das 899-EUR-Paket meistens der stärkste Einstieg. Soll ich dich direkt zu WhatsApp weiterleiten?", escalate: false };
   }
   if (includesAny(text, ["welches paket", "passt", "empfehlung", "starten", "anfangen"])) {
     return { text: "Wenn dein Fall einfach ist und du selbstständig arbeitest, reicht oft der Videozugang. Wenn du unsicher bist, Nachweise klären musst oder bald Termin hast, ist persönliche Begleitung deutlich sinnvoller. Der schnellste Weg: Schreib kurz per WhatsApp, warum du zur MPU musst. Dann bekommst du eine ehrliche Einschätzung, ohne Verkaufsdruck.", escalate: true };
