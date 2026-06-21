@@ -378,6 +378,43 @@ function showRiskStep(index) {
 }
 
 function getRiskResult() {
+  const lang = getCurrentLanguage();
+  if (lang === "en") {
+    if (riskScore >= 9) {
+      return {
+        title: "High need for clarification",
+        text: "Your case should not be prepared with videos only. Appointment timing, proof or file details can be decisive. The best next step is a personal WhatsApp assessment."
+      };
+    }
+    if (riskScore >= 5) {
+      return {
+        title: "Medium risk",
+        text: "Some parts of your case should be clarified before the MPU. The online room can help, but a personal call makes your preparation more targeted."
+      };
+    }
+    return {
+      title: "Good starting point",
+      text: "Your case looks more manageable at first glance. Proof, process and interview strategy should still be organised early."
+    };
+  }
+  if (lang === "ru") {
+    if (riskScore >= 9) {
+      return {
+        title: "Нужна точная проверка",
+        text: "Ваш случай не стоит готовить только по видео. Термин, документы или данные из дела могут быть решающими. Лучший следующий шаг — личная оценка в WhatsApp."
+      };
+    }
+    if (riskScore >= 5) {
+      return {
+        title: "Средний риск",
+        text: "В вашем случае есть моменты, которые нужно заранее прояснить. Онлайн-кабинет поможет, но личный разговор сделает подготовку точнее."
+      };
+    }
+    return {
+      title: "Хорошая стартовая точка",
+      text: "На первый взгляд случай выглядит более понятным. Но документы, процесс и стратегия разговора должны быть подготовлены заранее."
+    };
+  }
   if (riskScore >= 9) {
     return {
       title: "Hoher Klärungsbedarf",
@@ -403,7 +440,12 @@ function showRiskResult() {
   if (riskResultTitle) riskResultTitle.textContent = result.title;
   if (riskResultText) riskResultText.textContent = result.text;
   if (riskWhatsapp) {
-    const text = `Hallo, ich habe den MPU-Risiko-Check gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich m\u00f6chte meinen Fall einsch\u00e4tzen lassen.`;
+    const lang = getCurrentLanguage();
+    const text = lang === "en"
+      ? `Hello, I completed the MPU risk check. Result: ${result.title}. Answers: ${riskReasons.join(" | ")}. I would like a case assessment.`
+      : lang === "ru"
+        ? `Здравствуйте, я прошел MPU-чек. Результат: ${result.title}. Ответы: ${riskReasons.join(" | ")}. Я хочу оценку моего случая.`
+        : `Hallo, ich habe den MPU-Risiko-Check gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich möchte meinen Fall einschätzen lassen.`;
     riskWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
   if (riskResult) riskResult.hidden = false;
