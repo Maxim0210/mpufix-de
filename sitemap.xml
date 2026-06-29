@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://mpufix.de/tools.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -94,6 +94,11 @@
     <loc>https://mpufix.de/tools/mpu-kostenrechner.html</loc>
     <lastmod>2026-06-25</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/tools/bussgeldrechner.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/berlin.html</loc>

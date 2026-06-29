@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bußgeldrechner, Punkte & MPU-Risiko 2026 | MPUFIX.de</title>
+    <meta name="description" content="Bußgeldrechner für Geschwindigkeit, Alkohol, THC, Handy, Rotlicht und Punkte. Prüfe grob Bußgeld, Fahrverbot, Punkte und mögliches MPU-Risiko.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://mpufix.de/tools/bussgeldrechner.html">
+    <meta property="og:title" content="Bußgeldrechner, Punkte & MPU-Risiko 2026 | MPUFIX.de">
+    <meta property="og:description" content="Grobe Orientierung zu Bußgeld, Punkten, Fahrverbot und MPU-Risiko nach Verkehrsverstoß in Deutschland.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mpufix.de/tools/bussgeldrechner.html">
+    <link rel="icon" href="../assets/mpufix-mark-clean.png" type="image/png">
+    <link rel="stylesheet" href="../styles.css?v=20260629-1">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Bußgeldrechner, Punkte & MPU-Risiko","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://mpufix.de/tools/bussgeldrechner.html","inLanguage":"de-DE","description":"Kostenloser Orientierungrechner für Bußgeld, Punkte, Fahrverbot und MPU-Risiko nach Verkehrsverstößen in Deutschland."}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="MPUFIX.de Startseite"><img class="brand-logo" src="../assets/mpufix-logo-clean.png" alt="MPUFIX.de"></a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="../index.html#situationen">Situationen</a>
+        <a href="../index.html#system">System</a>
+        <a href="../index.html#pakete">Pakete</a>
+        <a href="../ueber-mich.html">Über mich</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../tools.html">Tools</a>
+        <a href="../standorte.html">Standorte</a>
+        <a href="../index.html#kontakt">Kontakt</a>
+      </nav>
+      <div class="language-badge" aria-label="Beratungssprachen"><span class="language-label">Wir sprechen Deutsch, Russisch und Englisch</span></div>
+      <a class="header-cta" href="https://wa.me/491624710700" target="_blank" rel="noopener">Gratis MPU-Check</a>
+    </header>
+    <main id="top">
+      <section class="hero tools-hero compact-hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Bußgeld, Punkte & MPU-Risiko</p>
+            <h1>Schätze ein, was ein Verkehrsverstoß für deinen Führerschein bedeuten kann.</h1>
+            <p class="hero-text">Der Rechner zeigt dir eine grobe Orientierung zu Bußgeld, Punkten, Fahrverbot und möglichem MPU-Risiko. Besonders wichtig ist das bei Alkohol, THC, vielen Punkten, wiederholten Verstößen oder wenn die Fahrerlaubnisbehörde schon beteiligt ist.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#rechner">Jetzt prüfen</a>
+              <a class="button secondary" href="https://wa.me/491624710700?text=Hallo%2C%20ich%20m%C3%B6chte%20meinen%20Verkehrsversto%C3%9F%20und%20mein%20MPU-Risiko%20einsch%C3%A4tzen%20lassen." target="_blank" rel="noopener">Fall per WhatsApp klären</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <figure class="hero-photo"><img src="../assets/hero-success-driver.webp" alt="Glücklicher Fahrer nach MPU Vorbereitung mit Führerschein und Auto"></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tool-section" id="rechner">
+        <div class="section-heading center">
+          <p class="eyebrow">Kostenloser Rechner</p>
+          <h2>Bußgeld ist nur ein Teil. Entscheidend ist oft das Führerschein-Risiko.</h2>
+          <p>Wähle deinen Fall aus. Das Ergebnis ist eine Orientierung und ersetzt keine Rechtsberatung oder Entscheidung der Behörde.</p>
+        </div>
+        <div class="tool-panel fine-tool-panel">
+          <div class="tool-form">
+            <label>Was ist passiert?
+              <select id="fineReason">
+                <option value="speed">Geschwindigkeit überschritten</option>
+                <option value="alcohol">Alkohol am Steuer</option>
+                <option value="thc">THC oder Cannabis am Steuer</option>
+                <option value="phone">Handy am Steuer</option>
+                <option value="redlight">Rotlichtverstoß</option>
+                <option value="points">Punkte in Flensburg</option>
+              </select>
+            </label>
+            <label>Zusatzangabe
+              <select id="fineDetail">
+                <option value="inner">innerorts oder normaler Erstverstoß</option>
+                <option value="outer">außerorts</option>
+                <option value="repeat">Wiederholung oder schon auffällig gewesen</option>
+                <option value="danger">Gefährdung, Unfall oder sehr hoher Wert</option>
+              </select>
+            </label>
+            <label>Geschwindigkeit zu schnell in km/h
+              <input id="speedOver" type="number" min="0" max="120" value="25">
+            </label>
+            <label>Aktueller Punktestand, falls bekannt
+              <input id="currentPoints" type="number" min="0" max="20" value="0">
+            </label>
+            <button class="button primary" type="button" id="calculateFineRisk">Bußgeld & MPU-Risiko einschätzen</button>
+          </div>
+          <div class="tool-result fine-result" id="fineRiskResult">
+            <span>Ergebnis</span>
+            <strong>Wähle deine Daten aus.</strong>
+            <p>Danach siehst du eine grobe Einschätzung zu Geldbuße, Punkten, Fahrverbot und nächstem sinnvollen Schritt.</p>
+          </div>
+        </div>
+
+        <p class="source-note">Hinweis: Die Werte orientieren sich an Regelsätzen und öffentlich verfügbaren Informationen. In der Praxis können Voreintragungen, Probezeit, Wiederholung, Gefährdung, Unfall, Straftatvorwurf, Aktenlage und Fahrerlaubnisbehörde das Ergebnis verändern. Das ist keine Rechtsberatung.</p>
+
+        <div class="traffic-topic-grid">
+          <article>
+            <span>Alkohol</span>
+            <h3>Ab 0,5 Promille wird es schnell ernst.</h3>
+            <p>Bei Wiederholung, hohen Werten oder Entziehung geht es nicht nur um Bußgeld. Dann zählt, ob du deinen Konsum und deine Veränderung glaubwürdig erklären kannst.</p>
+          </article>
+          <article>
+            <span>THC</span>
+            <h3>Der THC-Grenzwert ist für viele schwer einzuschätzen.</h3>
+            <p>Wichtig sind Wert, Konsummuster, Nachweise und ob zusätzlich Alkohol, Probezeit oder frühere Auffälligkeiten eine Rolle spielen.</p>
+          </article>
+          <article>
+            <span>Punkte</span>
+            <h3>Viele Punkte bedeuten Verhaltensprüfung.</h3>
+            <p>Bei wiederholten Verstößen interessiert die MPU nicht nur den einzelnen Fehler, sondern dein Muster im Straßenverkehr.</p>
+          </article>
+        </div>
+
+        <div class="gradient-cta">
+          <div><strong>Du willst wissen, ob bei dir eine MPU droht?</strong><span>Schick Anlass, Datum, Wert und vorhandene Schreiben per WhatsApp. Dann bekommst du eine klare erste Einordnung.</span></div>
+          <a class="button light" href="https://wa.me/491624710700?text=Hallo%2C%20ich%20m%C3%B6chte%20wissen%2C%20ob%20bei%20mir%20wegen%20Bu%C3%9Fgeld%2C%20Punkten%20oder%20Fahrverbot%20eine%20MPU%20droht." target="_blank" rel="noopener">Kostenlos einordnen lassen</a>
+        </div>
+      </section>
+
+      <section class="section muted-section">
+        <div class="section-heading">
+          <p class="eyebrow">Offizielle Grundlagen</p>
+          <h2>Warum dieser Rechner für SEO und für Betroffene sinnvoll ist.</h2>
+          <p>Viele Menschen suchen nicht sofort nach MPU Beratung. Sie suchen zuerst nach Bußgeld, Punkten, Fahrverbot, THC-Grenzwert oder Rotlicht. Genau dort holen wir sie ab und führen sie seriös zur MPU-Einschätzung.</p>
+        </div>
+        <div class="article-list">
+          <a href="https://www.kba.de/DE/Themen/ZentraleRegister/FAER/Fahreignungs_Bewertungssystem/fahreignungs_bewertungssystem_node.html" target="_blank" rel="noopener">
+            <span class="package-label">KBA</span>
+            <h3>Fahreignungs-Bewertungssystem und Punkte</h3>
+            <p>Offizielle Informationen zum Punktesystem und zu Maßnahmenstufen.</p>
+          </a>
+          <a href="https://www.gesetze-im-internet.de/bkatv_2013/anlage.html" target="_blank" rel="noopener">
+            <span class="package-label">BKatV</span>
+            <h3>Regelsätze für Bußgelder und Fahrverbote</h3>
+            <p>Gesetzliche Anlage zur Bußgeldkatalog-Verordnung.</p>
+          </a>
+          <a href="https://www.bmv.de/SharedDocs/DE/Artikel/K/sechstes-gesetz-zur-aenderung-des-strassenverkehrsgesetzes-verkuendet.html" target="_blank" rel="noopener">
+            <span class="package-label">BMV</span>
+            <h3>THC-Grenzwert im Straßenverkehr</h3>
+            <p>Informationen zur gesetzlichen Änderung rund um Cannabis und Fahren.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2026 MPUFIX.de. Seriöse MPU Beratung online für Deutschland.</p>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="../tools.html">Tools</a>
+        <a href="../standorte.html">Standorte</a>
+        <a href="../ueber-mich.html">Über mich</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+        <a href="../impressum.html">Impressum</a>
+        <a href="../agb.html">AGB</a>
+      </nav>
+    </footer>
+    <script src="../app.js?v=20260629-1"></script>
+  </body>
+</html>

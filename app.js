@@ -243,6 +243,117 @@ function setupMpuTools() {
       result.innerHTML = `<span>${score} von ${checks.length} Punkten</span><strong>${title}</strong><p>${text}</p>`;
     });
   }
+
+  const fineButton = document.getElementById("calculateFineRisk");
+  if (fineButton) {
+    fineButton.addEventListener("click", () => {
+      const reason = document.getElementById("fineReason")?.value || "speed";
+      const detail = document.getElementById("fineDetail")?.value || "inner";
+      const speedOver = Math.max(0, Number(document.getElementById("speedOver")?.value || 0));
+      const currentPoints = Math.max(0, Number(document.getElementById("currentPoints")?.value || 0));
+      const result = document.getElementById("fineRiskResult");
+      if (!result) return;
+
+      const speedTableInner = [
+        [10, 30, 0, "kein Regelfahrverbot"],
+        [15, 50, 0, "kein Regelfahrverbot"],
+        [20, 70, 0, "kein Regelfahrverbot"],
+        [25, 115, 1, "kein Regelfahrverbot"],
+        [30, 180, 1, "kein Regelfahrverbot"],
+        [40, 260, 2, "1 Monat möglich"],
+        [50, 400, 2, "1 Monat möglich"],
+        [60, 560, 2, "2 Monate möglich"],
+        [70, 700, 2, "3 Monate möglich"],
+        [999, 800, 2, "3 Monate möglich"]
+      ];
+      const speedTableOuter = [
+        [10, 20, 0, "kein Regelfahrverbot"],
+        [15, 40, 0, "kein Regelfahrverbot"],
+        [20, 60, 0, "kein Regelfahrverbot"],
+        [25, 100, 1, "kein Regelfahrverbot"],
+        [30, 150, 1, "kein Regelfahrverbot"],
+        [40, 200, 1, "kein Regelfahrverbot"],
+        [50, 320, 2, "1 Monat möglich"],
+        [60, 480, 2, "1 Monat möglich"],
+        [70, 600, 2, "2 Monate möglich"],
+        [999, 700, 2, "3 Monate möglich"]
+      ];
+
+      function speedEstimate() {
+        const table = detail === "outer" ? speedTableOuter : speedTableInner;
+        const row = table.find(([limit]) => speedOver <= limit) || table[table.length - 1];
+        return {
+          label: detail === "outer" ? "Geschwindigkeit außerorts" : "Geschwindigkeit innerorts",
+          fine: row[1],
+          points: row[2],
+          ban: row[3],
+          risk: row[2] >= 2 || currentPoints + row[2] >= 6 ? "erhöht" : "niedrig bis mittel",
+          advice: "Bei einzelnen Geschwindigkeitsverstößen geht es oft um Punkte und Fahrverbot. MPU-relevant wird es vor allem bei vielen Punkten, Wiederholung, Gefährdung oder Entziehung."
+        };
+      }
+
+      const estimates = {
+        alcohol: {
+          label: "Alkohol am Steuer",
+          fine: detail === "repeat" || detail === "danger" ? 1000 : 500,
+          points: 2,
+          ban: detail === "repeat" || detail === "danger" ? "bis 3 Monate möglich" : "1 Monat möglich",
+          risk: detail === "repeat" || detail === "danger" ? "hoch" : "erhöht",
+          advice: "Bei Alkohol zählt für die MPU nicht nur der Wert. Wichtig sind Trinkmuster, Auslöser, Veränderung, Rückfallplan und passende Nachweise."
+        },
+        thc: {
+          label: "THC oder Cannabis am Steuer",
+          fine: detail === "repeat" || detail === "danger" ? 1000 : 500,
+          points: 2,
+          ban: detail === "repeat" || detail === "danger" ? "bis 3 Monate möglich" : "1 Monat möglich",
+          risk: "erhöht",
+          advice: "Bei THC sollte schnell geklärt werden, welcher Wert vorliegt, ob Mischkonsum, Probezeit oder frühere Auffälligkeiten eine Rolle spielen und welche Nachweise sinnvoll sind."
+        },
+        phone: {
+          label: "Handy am Steuer",
+          fine: detail === "danger" ? 150 : 100,
+          points: detail === "danger" ? 2 : 1,
+          ban: detail === "danger" ? "1 Monat möglich" : "kein Regelfahrverbot",
+          risk: currentPoints + (detail === "danger" ? 2 : 1) >= 6 ? "erhöht" : "niedrig",
+          advice: "Ein Handyverstoß allein führt selten direkt zur MPU. Kritisch wird es bei vielen Punkten, wiederholten Auffälligkeiten oder Gefährdung."
+        },
+        redlight: {
+          label: "Rotlichtverstoß",
+          fine: detail === "danger" || detail === "repeat" ? 200 : 90,
+          points: detail === "danger" || detail === "repeat" ? 2 : 1,
+          ban: detail === "danger" || detail === "repeat" ? "1 Monat möglich" : "kein Regelfahrverbot",
+          risk: detail === "danger" || currentPoints >= 5 ? "erhöht" : "niedrig bis mittel",
+          advice: "Beim Rotlicht zählt, ob es ein einfacher oder qualifizierter Verstoß war und ob Gefährdung oder Unfall im Raum stehen."
+        },
+        points: {
+          label: "Punkte in Flensburg",
+          fine: 0,
+          points: 0,
+          ban: currentPoints >= 8 ? "Entziehung der Fahrerlaubnis möglich" : "abhängig vom Anlass",
+          risk: currentPoints >= 8 ? "hoch" : currentPoints >= 6 ? "erhöht" : "mittel",
+          advice: "Ab mehreren Punkten geht es nicht nur um Einzelverstöße. Für eine MPU zählt, ob du dein Fahrverhalten nachvollziehbar verändert hast."
+        }
+      };
+
+      const estimate = reason === "speed" ? speedEstimate() : estimates[reason];
+      const totalPoints = currentPoints + estimate.points;
+      const risk = totalPoints >= 8 ? "hoch" : totalPoints >= 6 && estimate.risk !== "hoch" ? "erhöht" : estimate.risk;
+      const fineText = estimate.fine > 0 ? `ca. ${estimate.fine.toLocaleString("de-DE")} Euro` : "kein fester Bußgeldwert";
+      const whatsappText = encodeURIComponent(`Hallo, ich habe den Bußgeld- und MPU-Risiko-Rechner genutzt. Thema: ${estimate.label}, grobes Risiko: ${risk}, Punkte nach Rechner: ${totalPoints}. Bitte kurz einschätzen.`);
+
+      result.innerHTML = `
+        <span>Grobe Orientierung</span>
+        <strong>${risk === "hoch" ? "Hohes Risiko" : risk === "erhöht" ? "Erhöhtes Risiko" : "Erste Orientierung"}</strong>
+        <div class="fine-summary">
+          <p><b>Bußgeld:</b> ${fineText}</p>
+          <p><b>Punkte:</b> ${estimate.points} neu, grob ${totalPoints} gesamt</p>
+          <p><b>Fahrverbot:</b> ${estimate.ban}</p>
+        </div>
+        <p>${estimate.advice}</p>
+        <a class="button secondary dark" href="https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}" target="_blank" rel="noopener">Fall kostenlos per WhatsApp klären</a>
+      `;
+    });
+  }
 }
 
 setupMpuTools();
