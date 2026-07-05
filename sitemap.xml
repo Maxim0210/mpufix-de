@@ -29,6 +29,10 @@
     <loc>https://mpufix.de/tools.html</loc>
     <lastmod>2026-06-29</lastmod>
     <priority>0.9</priority>
+  </url>  <url>
+    <loc>https://mpufix.de/mpu-sofortanalyse.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte.html</loc>
