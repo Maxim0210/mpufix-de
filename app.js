@@ -74,6 +74,21 @@ const privacyNoticeText = {
   }
 };
 
+const whatsappButtonText = {
+  de: {
+    label: "Direkt per WhatsApp schreiben",
+    text: "WhatsApp"
+  },
+  en: {
+    label: "Write directly on WhatsApp",
+    text: "WhatsApp"
+  },
+  ru: {
+    label: "Написать напрямую в WhatsApp",
+    text: "WhatsApp"
+  }
+};
+
 function getCurrentLanguage() {
   const path = window.location.pathname.toLowerCase();
   if (path.endsWith("/ru.html")) return "ru";
@@ -137,6 +152,31 @@ function setupPrivacyNotice() {
   });
 }
 
+function setupFloatingWhatsappButton() {
+  if (document.querySelector(".floating-whatsapp")) return;
+  const lang = getCurrentLanguage();
+  const copy = whatsappButtonText[lang] || whatsappButtonText.de;
+  const message = lang === "en"
+    ? "Hello, I would like a free MPU case check."
+    : lang === "ru"
+      ? "Здравствуйте, я хочу первичную оценку моего MPU-случая."
+      : "Hallo, ich möchte meinen MPU-Fall kurz einschätzen lassen.";
+  const link = document.createElement("a");
+  link.className = "floating-whatsapp";
+  link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.setAttribute("aria-label", copy.label);
+  link.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4l-4 1.1 1.1-3.9a8.4 8.4 0 1 1 15.3-4.6Z"></path>
+      <path d="M8.9 7.8c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.4.5c-.2.2-.2.4-.1.6.4.8 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.6-.5c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.6v.5c0 .3-.1.6-.4.7-.6.4-1.3.6-2.1.4-2.8-.6-5.5-3.2-6.1-6-.2-.8 0-1.5.4-2.1Z"></path>
+    </svg>
+    <span>${copy.text}</span>
+  `;
+  document.body.appendChild(link);
+}
+
 function setMenuButtonLabel(button) {
   const lang = getCurrentLanguage();
   const config = languageConfig[lang] || languageConfig.de;
@@ -184,6 +224,7 @@ function setupMobileMenu() {
 setupMobileMenu();
 setupLanguageSwitcher();
 setupPrivacyNotice();
+setupFloatingWhatsappButton();
 
 function setupMpuTools() {
   const costButton = document.getElementById("calculateCosts");

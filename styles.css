@@ -128,6 +128,50 @@ p { color: var(--text); }
   padding: 10px 14px;
 }
 
+.floating-whatsapp {
+  align-items: center;
+  background: #1f9d5a;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  bottom: 22px;
+  box-shadow: 0 18px 38px rgba(31, 157, 90, 0.26), 0 10px 24px rgba(35, 54, 91, 0.16);
+  color: #fff;
+  display: inline-flex;
+  gap: 8px;
+  min-height: 50px;
+  padding: 10px 14px 10px 12px;
+  position: fixed;
+  right: 22px;
+  text-decoration: none;
+  transform: translateZ(0);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  z-index: 76;
+}
+.floating-whatsapp:hover,
+.floating-whatsapp:focus-visible {
+  background: #17864c;
+  box-shadow: 0 22px 48px rgba(31, 157, 90, 0.32), 0 12px 28px rgba(35, 54, 91, 0.18);
+  outline: none;
+  transform: translateY(-2px);
+}
+.floating-whatsapp svg {
+  display: block;
+  fill: none;
+  flex: 0 0 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+  width: 24px;
+}
+.floating-whatsapp span {
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .site-header {
   align-items: center;
   background: rgba(255, 255, 255, 0.92);
@@ -2041,5 +2085,14 @@ input:focus, select:focus, textarea:focus {
     left: 16px;
     right: auto;
     max-width: calc(100vw - 32px);
+  }
+  .floating-whatsapp {
+    bottom: 16px;
+    min-height: 48px;
+    padding: 12px;
+    right: 16px;
+  }
+  .floating-whatsapp span {
+    display: none;
   }
 }
