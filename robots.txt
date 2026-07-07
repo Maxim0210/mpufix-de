@@ -4,5 +4,28 @@ Disallow: /admin.html
 Disallow: /automation.html
 Disallow: /affiliate-offenlegung.html
 
+# AI search and answer engines are allowed to crawl public MPUFIX content.
+# OpenAI Search uses OAI-SearchBot for ChatGPT search results.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# AI-readable site overview:
+# https://mpufix.de/llms.txt
+
 Sitemap: https://mpufix.de/sitemap.xml
 
