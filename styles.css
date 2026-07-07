@@ -837,8 +837,14 @@ p { color: var(--text); }
 }
 .tool-card a {
   color: var(--purple);
+  display: block;
   font-weight: 900;
+  margin-top: 10px;
   text-decoration: none;
+}
+.tool-card a + a {
+  color: var(--blue);
+  font-size: 14px;
 }
 .tools-hero {
   min-height: auto;

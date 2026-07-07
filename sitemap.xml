@@ -2,226 +2,242 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mpufix.de/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/ru.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/en.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/ueber-mich.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/blog.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/tools.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <priority>0.9</priority>
-  </url>  <url>
     <loc>https://mpufix.de/mpu-sofortanalyse.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/standorte.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <loc>https://mpufix.de/tools.html</loc>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-ablauf.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/standorte.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-kosten.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/blog.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-kostenrechner.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/ueber-mich.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-zweiter-versuch-nach-durchfallen.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/ru.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-fragestellung-verstehen.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/en.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/mpu-wegen-alkohol.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/impressum.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/alkohol-mpu-abstinenz-oder-kontrollierter-umgang.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/datenschutz.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mpufix.de/blog/punkte-mpu-nach-bussgeld-und-fahrverbot.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/blog/cannabis-mpu-thc-grenzwert-vorbereitung.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/blog/rueckfallrisiko-mpu-erklaeren.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/blog/mpu-unterlagen-vorbereiten.html</loc>
-    <lastmod>2026-06-27</lastmod>
-    <priority>0.7</priority>
+    <loc>https://mpufix.de/agb.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/abstinenznachweis.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/alkohol-mpu-abstinenz-oder-kontrollierter-umgang.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/cannabis-mpu-thc-grenzwert-vorbereitung.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-ablauf.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-fragestellung-verstehen.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-kosten.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-kostenrechner.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/mpu-online-vorbereitung-serioese-beratung-erkennen.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-unterlagen-vorbereiten.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-wegen-alkohol.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/mpu-zweiter-versuch-nach-durchfallen.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/punkte-mpu-nach-bussgeld-und-fahrverbot.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/rueckfallrisiko-mpu-erklaeren.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/tools/abstinenzrechner.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/tools/mpu-fragen-check.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mpufix.de/tools/mpu-kostenrechner.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mpufix.de/tools/bussgeldrechner.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/tools/mpu-fragen-check.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/tools/mpu-kostenrechner.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/berlin.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/bielefeld.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/bochum.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/bonn.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/bremen.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/dortmund.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/dresden.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/duesseldorf.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/duisburg.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/essen.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/frankfurt.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/hamburg.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/hannover.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/koeln.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/leipzig.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/muenchen.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/muenster.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/nuernberg.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/stuttgart.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/standorte/wuppertal.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <priority>0.75</priority>
   </url>
 </urlset>
