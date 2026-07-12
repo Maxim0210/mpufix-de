@@ -156,6 +156,7 @@ function setupPrivacyNotice() {
     </div>
   `;
   document.body.appendChild(notice);
+  document.body.classList.add("privacy-notice-open");
 
   notice.querySelector("button")?.addEventListener("click", () => {
     try {
@@ -163,6 +164,7 @@ function setupPrivacyNotice() {
     } catch (error) {
       // Ignore storage errors and still close the notice for this session.
     }
+    document.body.classList.remove("privacy-notice-open");
     notice.remove();
   });
 }

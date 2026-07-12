@@ -2186,6 +2186,15 @@ input:focus, select:focus, textarea:focus {
   .floating-call span {
     display: none;
   }
+  body.privacy-notice-open .floating-whatsapp {
+    bottom: clamp(210px, 30vh, 250px);
+  }
+  body.privacy-notice-open .floating-call {
+    bottom: calc(clamp(210px, 30vh, 250px) + 60px);
+  }
+  body.privacy-notice-open .chat-toggle {
+    bottom: clamp(210px, 30vh, 250px);
+  }
 }
 
 /* Deutschlandweiter Ortsfinder und verlinkbare MPU-Checkliste */
