@@ -89,6 +89,21 @@ const whatsappButtonText = {
   }
 };
 
+const callButtonText = {
+  de: {
+    label: "Direkt anrufen: +49 162 4710700",
+    text: "Anrufen"
+  },
+  en: {
+    label: "Call directly: +49 162 4710700",
+    text: "Call"
+  },
+  ru: {
+    label: "Позвонить напрямую: +49 162 4710700",
+    text: "Позвонить"
+  }
+};
+
 function getCurrentLanguage() {
   const path = window.location.pathname.toLowerCase();
   if (path.endsWith("/ru.html")) return "ru";
@@ -171,6 +186,24 @@ function setupFloatingWhatsappButton() {
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4l-4 1.1 1.1-3.9a8.4 8.4 0 1 1 15.3-4.6Z"></path>
       <path d="M8.9 7.8c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.4.5c-.2.2-.2.4-.1.6.4.8 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.6-.5c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.6v.5c0 .3-.1.6-.4.7-.6.4-1.3.6-2.1.4-2.8-.6-5.5-3.2-6.1-6-.2-.8 0-1.5.4-2.1Z"></path>
+    </svg>
+    <span>${copy.text}</span>
+  `;
+  document.body.appendChild(link);
+}
+
+function setupFloatingCallButton() {
+  if (document.querySelector(".floating-call")) return;
+  const lang = getCurrentLanguage();
+  const copy = callButtonText[lang] || callButtonText.de;
+  const link = document.createElement("a");
+  link.className = "floating-call";
+  link.href = "tel:+491624710700";
+  link.dataset.contact = "phone";
+  link.setAttribute("aria-label", copy.label);
+  link.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"></path>
     </svg>
     <span>${copy.text}</span>
   `;
@@ -325,6 +358,7 @@ setupMobileMenu();
 setupLanguageSwitcher();
 setupPrivacyNotice();
 setupFloatingWhatsappButton();
+setupFloatingCallButton();
 setupContactAttribution();
 setupPrivacyFriendlyAnalytics();
 

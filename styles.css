@@ -172,6 +172,49 @@ p { color: var(--text); }
   white-space: nowrap;
 }
 
+.floating-call {
+  align-items: center;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  bottom: 78px;
+  box-shadow: 0 16px 34px rgba(84, 92, 190, 0.24), 0 8px 20px rgba(35, 54, 91, 0.14);
+  color: #fff;
+  display: inline-flex;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 14px 10px 12px;
+  position: fixed;
+  right: 22px;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  z-index: 75;
+}
+.floating-call:hover,
+.floating-call:focus-visible {
+  box-shadow: 0 20px 42px rgba(84, 92, 190, 0.3), 0 10px 24px rgba(35, 54, 91, 0.16);
+  filter: brightness(0.96);
+  outline: none;
+  transform: translateY(-2px);
+}
+.floating-call svg {
+  display: block;
+  fill: none;
+  flex: 0 0 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+  width: 22px;
+}
+.floating-call span {
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .site-header {
   align-items: center;
   background: rgba(255, 255, 255, 0.92);
@@ -2134,6 +2177,15 @@ input:focus, select:focus, textarea:focus {
   .floating-whatsapp span {
     display: none;
   }
+  .floating-call {
+    bottom: 76px;
+    min-height: 48px;
+    padding: 12px;
+    right: 16px;
+  }
+  .floating-call span {
+    display: none;
+  }
 }
 
 /* Deutschlandweiter Ortsfinder und verlinkbare MPU-Checkliste */
@@ -2511,6 +2563,7 @@ input:focus, select:focus, textarea:focus {
   .no-print,
   .privacy-notice,
   .floating-whatsapp,
+  .floating-call,
   .chat-toggle,
   .chat-box,
   .partner-resource,
