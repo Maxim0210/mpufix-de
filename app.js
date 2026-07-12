@@ -177,6 +177,106 @@ function setupFloatingWhatsappButton() {
   document.body.appendChild(link);
 }
 
+function cleanAttributionValue(value, maxLength = 80) {
+  return String(value || "")
+    .replace(/[\r\n|]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
+}
+
+function detectAcquisitionSource() {
+  const params = new URLSearchParams(window.location.search);
+  const campaignSource = cleanAttributionValue(params.get("utm_source"));
+  if (campaignSource) return campaignSource;
+
+  let referrerHost = "";
+  try {
+    referrerHost = document.referrer ? new URL(document.referrer).hostname.toLowerCase() : "";
+  } catch (error) {
+    referrerHost = "";
+  }
+
+  if (!referrerHost || referrerHost === window.location.hostname.toLowerCase()) return "Direkt";
+  if (referrerHost.includes("google.")) return "Google";
+  if (referrerHost.includes("bing.")) return "Bing";
+  if (referrerHost.includes("chatgpt.com")) return "ChatGPT";
+  if (referrerHost.includes("perplexity.ai")) return "Perplexity";
+  if (referrerHost.includes("facebook.com") || referrerHost.includes("fb.com")) return "Facebook";
+  if (referrerHost.includes("instagram.com")) return "Instagram";
+  if (referrerHost.includes("tiktok.com")) return "TikTok";
+  if (referrerHost.includes("youtube.com") || referrerHost.includes("youtu.be")) return "YouTube";
+  return cleanAttributionValue(referrerHost.replace(/^www\./, ""));
+}
+
+function getContactAttribution() {
+  const storageKey = "mpufix_attribution_v1";
+  try {
+    const stored = window.sessionStorage?.getItem(storageKey);
+    if (stored) return JSON.parse(stored);
+  } catch (error) {
+    // Continue with attribution from the current page.
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const attribution = {
+    source: detectAcquisitionSource(),
+    campaign: cleanAttributionValue(params.get("utm_campaign")),
+    landing: cleanAttributionValue(window.location.pathname || "/", 120)
+  };
+
+  try {
+    window.sessionStorage?.setItem(storageKey, JSON.stringify(attribution));
+  } catch (error) {
+    // Attribution still works for the current page without storage.
+  }
+  return attribution;
+}
+
+function setupContactAttribution() {
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.('a[href*="wa.me/"]');
+    if (!link) return;
+
+    let url;
+    try {
+      url = new URL(link.href);
+    } catch (error) {
+      return;
+    }
+
+    const currentText = url.searchParams.get("text") || "Hallo, ich möchte meinen MPU-Fall einschätzen lassen.";
+    if (currentText.includes("MPUFIX-Quelle:")) return;
+
+    const attribution = getContactAttribution();
+    const campaign = attribution.campaign ? ` | Kampagne: ${attribution.campaign}` : "";
+    const contactPage = cleanAttributionValue(window.location.pathname || "/", 120);
+    const sourceLine = `MPUFIX-Quelle: ${attribution.source}${campaign} | Einstieg: ${attribution.landing} | Kontakt: ${contactPage}`;
+    url.searchParams.set("text", `${currentText}\n\n${sourceLine}`);
+    link.href = url.toString();
+  }, true);
+}
+
+async function setupPrivacyFriendlyAnalytics() {
+  if (window.location.protocol === "file:") return;
+
+  try {
+    const response = await fetch("/analytics-config.json", { cache: "no-store" });
+    if (!response.ok) return;
+    const config = await response.json();
+    const token = String(config.cloudflareToken || "").trim();
+    if (!/^[a-f0-9]{32}$/i.test(token)) return;
+
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    script.dataset.cfBeacon = JSON.stringify({ token });
+    document.head.appendChild(script);
+  } catch (error) {
+    // Analytics is optional and must never block the website.
+  }
+}
+
 function setMenuButtonLabel(button) {
   const lang = getCurrentLanguage();
   const config = languageConfig[lang] || languageConfig.de;
@@ -225,6 +325,8 @@ setupMobileMenu();
 setupLanguageSwitcher();
 setupPrivacyNotice();
 setupFloatingWhatsappButton();
+setupContactAttribution();
+setupPrivacyFriendlyAnalytics();
 
 function setupMpuTools() {
   const costButton = document.getElementById("calculateCosts");
