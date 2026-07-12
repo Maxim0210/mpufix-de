@@ -2102,3 +2102,419 @@ input:focus, select:focus, textarea:focus {
     display: none;
   }
 }
+
+/* Deutschlandweiter Ortsfinder und verlinkbare MPU-Checkliste */
+.nationwide-hero .hero-text {
+  max-width: 680px;
+}
+
+.location-finder-section {
+  padding-top: 48px;
+}
+
+.location-finder-shell {
+  background: #f5f8fd;
+  border: 1px solid #dbe5f2;
+  border-radius: 8px;
+  display: grid;
+  gap: 28px 46px;
+  grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1.14fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: clamp(26px, 4vw, 48px);
+}
+
+.location-finder-copy h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+.location-finder {
+  align-self: center;
+}
+
+.location-finder label {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.location-finder-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.location-finder input {
+  background: #fff;
+  border: 1px solid #bfcce0;
+  border-radius: 7px;
+  color: var(--ink);
+  min-height: 54px;
+  min-width: 0;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.location-finder input:focus-visible {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(93, 39, 147, 0.12);
+  outline: 0;
+}
+
+.form-hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+.location-result {
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid rgba(34, 179, 106, 0.34);
+  border-left: 5px solid var(--green);
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  grid-column: 1 / -1;
+  grid-template-columns: 52px minmax(0, 1fr);
+  padding: 24px;
+}
+
+.location-result[hidden] {
+  display: none;
+}
+
+.location-result-icon {
+  align-items: center;
+  background: #e9f8f0;
+  border-radius: 50%;
+  color: #08733f;
+  display: inline-flex;
+  font-size: 24px;
+  font-weight: 900;
+  height: 52px;
+  justify-content: center;
+  width: 52px;
+}
+
+.location-result h3 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.state-grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 36px auto 0;
+  max-width: 1180px;
+}
+
+.state-grid article {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  min-height: 150px;
+  padding: 24px;
+}
+
+.state-grid article:nth-child(-n + 4) {
+  border-top: 1px solid var(--line);
+}
+
+.state-grid article:nth-child(4n + 1) {
+  border-left: 1px solid var(--line);
+}
+
+.state-grid strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.state-grid p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.regional-link-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 32px auto 0;
+  max-width: 1080px;
+}
+
+.regional-link-grid a {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 800;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 11px 14px;
+  text-decoration: none;
+}
+
+.regional-link-grid a::after {
+  color: var(--blue);
+  content: "→";
+}
+
+.regional-link-grid a:hover,
+.regional-link-grid a:focus-visible {
+  border-color: var(--blue);
+  box-shadow: 0 10px 24px rgba(55, 78, 120, 0.1);
+  outline: 0;
+}
+
+.checklist-hero .page-hero-inner {
+  max-width: 1040px;
+}
+
+.checklist-meta {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  margin: 24px 0 0;
+}
+
+.checklist-layout {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.32fr);
+}
+
+.checklist-intro {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+}
+
+.checklist-intro h2 {
+  font-size: clamp(28px, 3.4vw, 44px);
+}
+
+.printable-checklist {
+  display: grid;
+  gap: 18px;
+}
+
+.checklist-group {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: clamp(20px, 3vw, 30px);
+}
+
+.checklist-group-heading {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+}
+
+.checklist-group-heading > span {
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.checklist-group-heading h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.checklist-group-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.checklist-group > label {
+  align-items: flex-start;
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  font-size: 15px;
+  gap: 11px;
+  grid-template-columns: 20px minmax(0, 1fr);
+  padding: 9px 0;
+}
+
+.checklist-group input[type="checkbox"] {
+  accent-color: var(--purple);
+  height: 18px;
+  margin: 3px 0 0;
+  width: 18px;
+}
+
+.partner-resource {
+  align-items: center;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+}
+
+.partner-link-box {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+}
+
+.partner-link-box strong,
+.partner-link-box code {
+  display: block;
+}
+
+.partner-link-box code {
+  background: var(--soft);
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+  padding: 12px;
+}
+
+@media (max-width: 980px) {
+  .location-finder-shell,
+  .checklist-layout,
+  .partner-resource {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist-intro {
+    position: static;
+  }
+
+  .state-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .state-grid article:nth-child(-n + 4) {
+    border-top: 0;
+  }
+
+  .state-grid article:nth-child(-n + 2) {
+    border-top: 1px solid var(--line);
+  }
+
+  .state-grid article:nth-child(4n + 1) {
+    border-left: 0;
+  }
+
+  .state-grid article:nth-child(2n + 1) {
+    border-left: 1px solid var(--line);
+  }
+
+  .regional-link-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .location-finder-section {
+    padding-top: 30px;
+  }
+
+  .location-finder-shell {
+    gap: 22px;
+    padding: 22px 18px;
+  }
+
+  .location-finder-row {
+    grid-template-columns: 1fr;
+  }
+
+  .location-finder-row .button {
+    width: 100%;
+  }
+
+  .location-result {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+
+  .state-grid,
+  .regional-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .state-grid article,
+  .state-grid article:nth-child(-n + 2),
+  .state-grid article:nth-child(2n + 1) {
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-top: 0;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .state-grid article:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .partner-resource {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+    size: A4;
+  }
+
+  .site-header,
+  .no-print,
+  .privacy-notice,
+  .floating-whatsapp,
+  .chat-toggle,
+  .chat-box,
+  .partner-resource,
+  .scroll-progress {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .page-hero,
+  .section,
+  .checklist-layout {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .page-hero {
+    margin-bottom: 12mm;
+  }
+
+  .page-hero h1 {
+    font-size: 25pt;
+  }
+
+  .checklist-intro {
+    margin-bottom: 8mm;
+  }
+
+  .checklist-group {
+    break-inside: avoid;
+    box-shadow: none;
+    margin-bottom: 5mm;
+    padding: 6mm;
+  }
+}

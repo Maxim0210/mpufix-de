@@ -762,3 +762,35 @@ document.querySelector("#riskRestart")?.addEventListener("click", () => {
 });
 
 showRiskStep(0);
+
+function setupLocationFinder() {
+  const form = document.getElementById("locationFinder");
+  const input = document.getElementById("locationQuery");
+  const result = document.getElementById("locationResult");
+  const title = document.getElementById("locationResultTitle");
+  const whatsapp = document.getElementById("locationWhatsapp");
+
+  if (!form || !input || !result || !title || !whatsapp) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const location = input.value.trim().replace(/\s+/g, " ").slice(0, 80);
+    if (!location) {
+      input.focus();
+      return;
+    }
+
+    title.textContent = `MPU Beratung ist für ${location} online verfügbar.`;
+    const message = `Hallo, ich wohne in ${location} und möchte meinen MPU-Fall kostenlos einordnen lassen. Mein Anlass ist: `;
+    whatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    result.hidden = false;
+    result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+}
+
+function setupPrintableChecklist() {
+  document.getElementById("printChecklist")?.addEventListener("click", () => window.print());
+}
+
+setupLocationFinder();
+setupPrintableChecklist();

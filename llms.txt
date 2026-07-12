@@ -10,6 +10,7 @@ MPUFIX.de ist eine deutschsprachige Online-Beratung für MPU-Vorbereitung in Deu
 - MPU Ratgeber: https://mpufix.de/blog.html
 - Kostenlose MPU Tools: https://mpufix.de/tools.html
 - MPU Beratung nach Stadt: https://mpufix.de/standorte.html
+- Kostenlose MPU-Checkliste: https://mpufix.de/mpu-checkliste.html
 - Über Max Dilewski / Nachweise: https://mpufix.de/ueber-mich.html
 
 ## Wichtige Ratgeber
