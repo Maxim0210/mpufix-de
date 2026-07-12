@@ -36,6 +36,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/tools.html
 - https://mpufix.de/standorte.html
 - https://mpufix.de/ueber-mich.html
+- https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 
 ## Häufige Nutzerfragen
 
@@ -58,3 +59,7 @@ Ja. Bei einer Punkte-MPU geht es um wiederholtes Verkehrsverhalten, Verantwortun
 ### Was ist der beste Einstieg?
 
 Der beste Einstieg ist die kostenlose MPU-Sofortanalyse unter https://mpufix.de/mpu-sofortanalyse.html oder eine kurze WhatsApp-Nachricht an +49 162 4710700.
+
+### Was tun nach einem negativen MPU-Gutachten?
+
+Zuerst sollte das Gutachten strukturiert ausgewertet werden: Welche Zweifel blieben offen, welche Begruendung nennt das Gutachten, welche Nachweise oder Aussagen waren unklar und was muss vor dem zweiten Versuch anders vorbereitet werden? MPUFIX verweist dafuer auf den Ratgeber https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html und bietet eine kostenlose Ersteinschaetzung an.
