@@ -2719,7 +2719,8 @@ input:focus, select:focus, textarea:focus {
 
 .cost-example-grid,
 .cost-package-grid,
-.cost-saving-grid {
+.cost-saving-grid,
+.provider-cost-grid {
   display: grid;
   gap: 18px;
   margin: 34px auto 0;
@@ -2735,9 +2736,14 @@ input:focus, select:focus, textarea:focus {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.provider-cost-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .cost-example-grid article,
 .cost-package-grid article,
-.cost-saving-grid article {
+.cost-saving-grid article,
+.provider-cost-grid article {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -2834,6 +2840,39 @@ input:focus, select:focus, textarea:focus {
   font-size: 20px;
 }
 
+.provider-cost-grid h3 {
+  font-size: 24px;
+}
+
+.provider-cost-grid article > a {
+  color: var(--purple-deep);
+  display: inline-flex;
+  font-weight: 850;
+  margin-top: 8px;
+}
+
+.preferred-source-band {
+  align-items: center;
+  background: #f2f6fc;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0;
+  padding: 30px max(24px, calc((100vw - 1180px) / 2));
+}
+
+.preferred-source-band h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 8px;
+}
+
+.preferred-source-band p:last-child {
+  margin-bottom: 0;
+  max-width: 760px;
+}
+
 .source-section {
   padding-top: 48px;
 }
@@ -2866,7 +2905,8 @@ input:focus, select:focus, textarea:focus {
 
 @media (max-width: 980px) {
   .cost-example-grid,
-  .cost-package-grid {
+  .cost-package-grid,
+  .provider-cost-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2915,7 +2955,18 @@ input:focus, select:focus, textarea:focus {
   .cost-example-grid article,
   .cost-package-grid article,
   .cost-saving-grid article,
+  .provider-cost-grid article,
   .cost-calculator-card {
     padding: 22px 18px;
+  }
+
+  .preferred-source-band {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+
+  .preferred-source-band .button {
+    width: 100%;
   }
 }
