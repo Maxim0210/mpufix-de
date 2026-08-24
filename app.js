@@ -372,18 +372,34 @@ function setupMpuTools() {
       const prep = Number(document.getElementById("costPrep")?.value || 0);
       const hair = Math.max(0, Number(document.getElementById("hairCount")?.value || 0));
       const urine = Math.max(0, Number(document.getElementById("urineCount")?.value || 0));
-      const ranges = {
-        points: [350, 550],
-        alcohol: [450, 750],
-        drugs: [450, 750],
-        mixed: [600, 950]
+      const baseCosts = {
+        points: {
+          range: [500, 500],
+          source: "Das ADAC-Rechenbeispiel setzt für eine Punkte-MPU rund 500 Euro Begutachtungskosten an."
+        },
+        alcohol: {
+          range: [700, 700],
+          source: "Das ADAC-Rechenbeispiel setzt für eine Alkohol-MPU rund 700 Euro Begutachtungskosten an."
+        },
+        drugs: {
+          range: [800, 800],
+          source: "Das ADAC-Rechenbeispiel setzt für eine Drogen-MPU rund 800 Euro Begutachtungskosten an."
+        },
+        mixed: {
+          range: [400, 1100],
+          source: "Für Mischfälle gibt es in den geprüften Quellen keine belastbare eigene Spanne. Der Rechner nutzt deshalb den aktuellen allgemeinen Rahmen aus ADAC und TÜV NORD."
+        }
       };
-      const [baseMin, baseMax] = ranges[reason] || ranges.points;
-      const min = baseMin + prep + hair * 200 + urine * 50;
+      const baseCost = baseCosts[reason] || baseCosts.points;
+      const [baseMin, baseMax] = baseCost.range;
+      const min = baseMin + prep + hair * 200 + urine * 70;
       const max = baseMax + prep + hair * 300 + urine * 100;
+      const rangeLabel = min === max
+        ? `etwa ${min.toLocaleString("de-DE")} Euro`
+        : `${min.toLocaleString("de-DE")} bis ${max.toLocaleString("de-DE")} Euro`;
       const result = document.getElementById("costResult");
       if (result) {
-        result.innerHTML = `<span>Grobe Orientierung</span><strong>${min.toLocaleString("de-DE")} bis ${max.toLocaleString("de-DE")} Euro</strong><p>Das ist keine verbindliche Preisangabe. Entscheidend sind Anlass, Fragestellung, Nachweise und die gewählte Vorbereitung.</p>`;
+        result.innerHTML = `<span>Grobe Orientierung</span><strong>${rangeLabel}</strong><p>${baseCost.source} Anbieterpreise können abweichen. Führerscheinantrag, zusätzliche Unterlagen und Auslagen sind nicht enthalten.</p>`;
       }
     });
   }
