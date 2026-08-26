@@ -3,10 +3,31 @@
   <channel>
     <title>MPUFIX MPU-Ratgeber</title>
     <link>https://mpufix.de/blog.html</link>
-    <description>Hilfreiche Ratgeber zu MPU-Kosten, Ablauf, Alkohol, Cannabis, Drogen, Punkten, Nachweisen und psychologischem Gespräch.</description>
+    <description>Hilfreiche Ratgeber zu MPU-Recht, Änderungen, Kosten, Ablauf, Alkohol, Cannabis, Drogen, Punkten, Nachweisen und psychologischem Gespräch.</description>
     <language>de-DE</language>
-    <lastBuildDate>Tue, 25 Aug 2026 12:20:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 16:30:00 +0200</lastBuildDate>
     <atom:link href="https://mpufix.de/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MPU-Anordnung verstehen: §§ 11, 13, 13a und 14 FeV</title>
+      <link>https://mpufix.de/blog/mpu-recht-fev-anordnung.html</link>
+      <guid isPermaLink="true">https://mpufix.de/blog/mpu-recht-fev-anordnung.html</guid>
+      <pubDate>Wed, 26 Aug 2026 16:30:00 +0200</pubDate>
+      <description>Welche Vorschrift bei Alkohol, Cannabis, anderen Drogen oder wiederholten Verkehrsverstößen gilt und warum Fragestellung, Akte und Frist zuerst geklärt werden sollten.</description>
+    </item>
+    <item>
+      <title>Cannabis-MPU 2026: 3,5 ng/ml THC und § 13a FeV</title>
+      <link>https://mpufix.de/blog/cannabis-mpu-recht-2026.html</link>
+      <guid isPermaLink="true">https://mpufix.de/blog/cannabis-mpu-recht-2026.html</guid>
+      <pubDate>Wed, 26 Aug 2026 16:20:00 +0200</pubDate>
+      <description>Warum THC-Grenzwert, Ordnungswidrigkeit und MPU-Anordnung getrennt geprüft werden müssen.</description>
+    </item>
+    <item>
+      <title>MPU-Chancen realistisch prüfen: drei typische Fallmuster</title>
+      <link>https://mpufix.de/blog/mpu-chancen-fallmuster.html</link>
+      <guid isPermaLink="true">https://mpufix.de/blog/mpu-chancen-fallmuster.html</guid>
+      <pubDate>Wed, 26 Aug 2026 16:10:00 +0200</pubDate>
+      <description>Drei klar gekennzeichnete Fallmuster zu Alkohol, Cannabis und negativem Gutachten mit realistischen nächsten Schritten.</description>
+    </item>
     <item>
       <title>Abstinenznachweis MPU: Wann ist er wirklich nötig?</title>
       <link>https://mpufix.de/blog/abstinenznachweis.html</link>
