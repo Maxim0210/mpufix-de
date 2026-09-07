@@ -1,11 +1,3 @@
-let leadState = {};
-try {
-  const storedState = window.localStorage?.getItem("mpufix_state");
-  leadState = storedState ? JSON.parse(storedState) : {};
-} catch (error) {
-  leadState = {};
-}
-leadState.contacts ||= [];
 const WHATSAPP_NUMBER = "491624710700";
 
 const languageConfig = {
@@ -37,19 +29,34 @@ const languageLinks = [
 
 const contactMessages = {
   de: {
-    sending: "Wird gesendet...",
-    success: "Danke. Deine Anfrage ist angekommen. Wenn es eilig ist, schreib zusätzlich direkt per WhatsApp.",
-    fallback: "Die Anfrage ist lokal vorbereitet. Falls nichts ankommt, nutze bitte direkt WhatsApp."
+    intro: "Hallo, ich komme über das Kontaktformular auf MPUFIX.de.",
+    name: "Name",
+    phone: "Rückrufnummer",
+    email: "E-Mail",
+    reason: "MPU-Anlass",
+    package: "Gewünschtes Paket",
+    details: "Kurzbeschreibung",
+    opening: "WhatsApp wird geöffnet. Bitte prüfe und sende die Nachricht dort selbst."
   },
   en: {
-    sending: "Sending...",
-    success: "Thank you. Your request has arrived. If it is urgent, please also write directly on WhatsApp.",
-    fallback: "Your request was prepared locally. If nothing arrives, please use WhatsApp directly."
+    intro: "Hello, I am contacting MPUFIX.de through the website form.",
+    name: "Name",
+    phone: "Callback number",
+    email: "Email",
+    reason: "MPU reason",
+    package: "Preferred package",
+    details: "Short case description",
+    opening: "WhatsApp is opening. Please review and send the message there yourself."
   },
   ru: {
-    sending: "Отправляется...",
-    success: "Спасибо. Ваш запрос получен. Если вопрос срочный, напишите дополнительно напрямую в WhatsApp.",
-    fallback: "Запрос подготовлен локально. Если он не отправится, пожалуйста, напишите напрямую в WhatsApp."
+    intro: "Здравствуйте, я заполнил форму на сайте MPUFIX.de.",
+    name: "Имя",
+    phone: "Номер для обратной связи",
+    email: "E-mail",
+    reason: "Причина MPU",
+    package: "Желаемый пакет",
+    details: "Краткое описание случая",
+    opening: "Открывается WhatsApp. Проверьте и отправьте сообщение там самостоятельно."
   }
 };
 
@@ -268,6 +275,22 @@ function getContactAttribution() {
   return attribution;
 }
 
+function addContactAttribution(message) {
+  if (message.includes("MPUFIX-Quelle:")) return message;
+
+  const attribution = getContactAttribution();
+  const campaign = attribution.campaign ? ` | Kampagne: ${attribution.campaign}` : "";
+  const contactPage = cleanAttributionValue(window.location.pathname || "/", 120);
+  const sourceLine = `MPUFIX-Quelle: ${attribution.source}${campaign} | Einstieg: ${attribution.landing} | Kontakt: ${contactPage}`;
+  return `${message}\n\n${sourceLine}`;
+}
+
+function createWhatsappUrl(message) {
+  const url = new URL(`https://wa.me/${WHATSAPP_NUMBER}`);
+  url.searchParams.set("text", addContactAttribution(message));
+  return url.toString();
+}
+
 function setupContactAttribution() {
   document.addEventListener("click", (event) => {
     const link = event.target.closest?.('a[href*="wa.me/"]');
@@ -281,13 +304,7 @@ function setupContactAttribution() {
     }
 
     const currentText = url.searchParams.get("text") || "Hallo, ich möchte meinen MPU-Fall einschätzen lassen.";
-    if (currentText.includes("MPUFIX-Quelle:")) return;
-
-    const attribution = getContactAttribution();
-    const campaign = attribution.campaign ? ` | Kampagne: ${attribution.campaign}` : "";
-    const contactPage = cleanAttributionValue(window.location.pathname || "/", 120);
-    const sourceLine = `MPUFIX-Quelle: ${attribution.source}${campaign} | Einstieg: ${attribution.landing} | Kontakt: ${contactPage}`;
-    url.searchParams.set("text", `${currentText}\n\n${sourceLine}`);
+    url.searchParams.set("text", addContactAttribution(currentText));
     link.href = url.toString();
   }, true);
 }
@@ -670,12 +687,21 @@ if (zoomButtons.length) {
   });
 }
 
-function saveState() {
-  try {
-    window.localStorage?.setItem("mpufix_state", JSON.stringify(leadState));
-  } catch (error) {
-    // Lead data is still handled in the current session when storage is unavailable.
-  }
+function buildContactMessage(data, language) {
+  const copy = contactMessages[language] || contactMessages.de;
+  const lines = [copy.intro];
+  const addLine = (label, value, maxLength) => {
+    const cleaned = cleanAttributionValue(value, maxLength);
+    if (cleaned) lines.push(`${label}: ${cleaned}`);
+  };
+
+  addLine(copy.name, data.name, 80);
+  addLine(copy.reason, data.anlass, 120);
+  addLine(copy.package, data.paket, 80);
+  addLine(copy.phone, data.telefon, 80);
+  addLine(copy.email, data.email, 120);
+  addLine(copy.details, data.nachricht, 700);
+  return lines.join("\n").slice(0, 1500);
 }
 
 document.querySelectorAll("[data-package]").forEach((button) => {
@@ -687,30 +713,17 @@ document.querySelectorAll("[data-package]").forEach((button) => {
   });
 });
 
-document.querySelector("#contactForm")?.addEventListener("submit", async (event) => {
+document.querySelector("#contactForm")?.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
   const result = document.querySelector("#contactResult");
-  leadState.contacts.unshift({ ...data, createdAt: new Date().toISOString() });
-  leadState.contacts = leadState.contacts.slice(0, 30);
-  saveState();
-  const messages = contactMessages[getCurrentLanguage()] || contactMessages.de;
-  if (result) result.textContent = messages.sending;
-
-  try {
-    await fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    });
-    if (result) result.textContent = messages.success;
-    form.reset();
-  } catch (error) {
-    if (result) result.textContent = messages.fallback;
-    updateWhatsappLink(data.nachricht || "Ich möchte meinen MPU-Fall einschätzen lassen.");
-  }
+  const language = getCurrentLanguage();
+  const messages = contactMessages[language] || contactMessages.de;
+  const message = buildContactMessage(data, language);
+  if (result) result.textContent = messages.opening;
+  window.location.assign(createWhatsappUrl(message));
 });
 
 function includesAny(text, words) {

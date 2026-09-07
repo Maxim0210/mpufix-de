@@ -746,24 +746,26 @@
             <a class="button secondary dark" href="mailto:m-dilew@web.de">E-Mail senden</a>
           </div>
         </div>
-        <form class="lead-card" id="contactForm" name="mpu-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="mpu-lead">
-          <p class="honeypot">
-            <label>Nicht ausfüllen <input name="bot-field"></label>
-          </p>
+        <form class="lead-card" id="contactForm" action="/" method="post">
           <label>
             Name
             <input name="name" autocomplete="name" required>
           </label>
           <label>
             Anlass der MPU
-            <select id="packageSelect" name="anlass" required>
+            <select name="anlass" required>
               <option value="">Bitte auswählen</option>
               <option>Alkohol</option>
               <option>Drogen oder Cannabis</option>
               <option>Punkte</option>
               <option>Straftat</option>
               <option>Nicht bestanden</option>
+            </select>
+          </label>
+          <label>
+            Gewünschtes Paket
+            <select id="packageSelect" name="paket">
+              <option value="">Noch offen</option>
               <option>Videozugang 499 €</option>
               <option>Video plus 2 Gespräche 899 €</option>
               <option>Intensivbegleitung 1.999 €</option>
@@ -781,8 +783,8 @@
             Was ist passiert?
             <textarea name="nachricht" rows="4" required></textarea>
           </label>
-          <button class="button primary" type="submit">Anfrage vorbereiten</button>
-          <p id="contactResult" role="status"></p>
+          <button class="button primary" type="submit">Nachricht in WhatsApp öffnen</button>
+          <p id="contactResult" role="status">Deine Angaben werden nicht auf dieser Website gespeichert. In WhatsApp prüfst und sendest du die vorbereitete Nachricht selbst.</p>
         </form>
       </section>
     </main>
@@ -832,7 +834,7 @@
       </nav>
     </footer>
 
-    <script src="app.js?v=20260712-5"></script>
+    <script src="app.js?v=20260901-1"></script>
   </body>
 </html>
 

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mpufix.de/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -32,12 +32,12 @@
   </url>
   <url>
     <loc>https://mpufix.de/blog.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://mpufix.de/mpu-recht.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -47,18 +47,23 @@
   </url>
   <url>
     <loc>https://mpufix.de/ru.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/en.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/abstinenznachweis.html</loc>
     <lastmod>2026-08-25</lastmod>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mpufix.de/blog/sperrfrist-neuerteilung-fahrerlaubnis.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://mpufix.de/blog/alkohol-mpu-abstinenz-oder-kontrollierter-umgang.html</loc>
