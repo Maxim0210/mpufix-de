@@ -43,6 +43,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 - https://mpufix.de/blog/mpu-kosten.html
 - https://mpufix.de/blog/mpu-recht-fev-anordnung.html
+- https://mpufix.de/blog/medizinalcannabis-fuehrerschein-mpu.html
 - https://mpufix.de/blog/cannabis-mpu-recht-2026.html
 - https://mpufix.de/blog/mpu-chancen-fallmuster.html
 - https://mpufix.de/blog/sperrfrist-neuerteilung-fahrerlaubnis.html
@@ -61,6 +62,14 @@ Viele Teile der MPU-Vorbereitung lassen sich online vorbereiten: Fallanalyse, Ze
 ### Hilft MPUFIX bei Cannabis-MPU?
 
 Ja. MPUFIX erklärt THC-Wert, Konsumverlauf, Nachweise, Abstinenzfragen, Aktenlage und die Vorbereitung auf kritische Rückfragen.
+
+### Führt eine erste Cannabisfahrt automatisch zur MPU?
+
+Nein. Nach dem Beschluss des VGH München vom 20. Mai 2026, Az. 11 CS 26.664, muss bei einer ersten Zuwiderhandlung unter Cannabiseinfluss eine aussagekräftige Zusatztatsache hinzukommen, die das Risiko einer erneuten Cannabisfahrt erheblich erhöht. Die Rechtmäßigkeit einer konkreten Anordnung muss ein Verkehrsrechtsanwalt anhand der Akte und Fristen prüfen.
+
+### Schützt ein Medizinalcannabis-Rezept automatisch den Führerschein?
+
+Nein. Der BayVGH-Beschluss vom 6. August 2026, Az. 11 ZB 26.1062, zeigt, dass trotz ärztlicher Verordnung die individuelle Leistungsfähigkeit, die Grunderkrankung, die bestimmungsgemäße Einnahme und der verantwortliche Umgang mit Beeinträchtigungen geprüft werden können. Die Arzneimittelausnahme des § 24a Abs. 4 StVG ist kein pauschaler Nachweis der Fahreignung.
 
 ### Hilft MPUFIX bei Punkte-MPU?
 

@@ -20,12 +20,19 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  max-width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  width: 100%;
+}
 body {
   background: #fff;
   color: var(--ink);
   margin: 0;
+  max-width: 100%;
   overflow-x: hidden;
+  width: 100%;
 }
 body, input, select, textarea, button {
   font: 16px/1.58 "Poppins", "Aptos", "Segoe UI", sans-serif;
@@ -2039,6 +2046,13 @@ input:focus, select:focus, textarea:focus {
   margin: 0 auto;
   max-width: 1060px;
   padding: clamp(72px, 8vw, 110px) clamp(18px, 6vw, 72px);
+  width: 100%;
+}
+.page-hero-inner,
+.article-content,
+.article-content > * {
+  max-width: 100%;
+  min-width: 0;
 }
 .article-card {
   background: #fff;
@@ -2263,6 +2277,14 @@ input:focus, select:focus, textarea:focus {
     overflow-wrap: anywhere;
   }
   h2 { font-size: 31px; }
+  .page-hero h1,
+  .page-hero-inner > p,
+  .article-content p,
+  .article-content li,
+  .article-content a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
   .site-header {
     padding: 10px 14px;
   }
