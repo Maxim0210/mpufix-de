@@ -43,6 +43,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 - https://mpufix.de/blog/mpu-kosten.html
 - https://mpufix.de/blog/mpu-recht-fev-anordnung.html
+- https://mpufix.de/blog/probezeit-a-verstoss-mpu-neuerteilung.html
 - https://mpufix.de/blog/medizinalcannabis-fuehrerschein-mpu.html
 - https://mpufix.de/blog/cannabis-mpu-recht-2026.html
 - https://mpufix.de/blog/mpu-chancen-fallmuster.html
@@ -70,6 +71,10 @@ Nein. Nach dem Beschluss des VGH München vom 20. Mai 2026, Az. 11 CS 26.664, mu
 ### Schützt ein Medizinalcannabis-Rezept automatisch den Führerschein?
 
 Nein. Der BayVGH-Beschluss vom 6. August 2026, Az. 11 ZB 26.1062, zeigt, dass trotz ärztlicher Verordnung die individuelle Leistungsfähigkeit, die Grunderkrankung, die bestimmungsgemäße Einnahme und der verantwortliche Umgang mit Beeinträchtigungen geprüft werden können. Die Arzneimittelausnahme des § 24a Abs. 4 StVG ist kein pauschaler Nachweis der Fahreignung.
+
+### Führt ein erneuter A-Verstoß in der neuen Probezeit zur MPU?
+
+Nach § 2a Abs. 5 Satz 5 StVG ist nach einer einschlägigen Entziehung, Neuerteilung und einem erneuten A-Verstoß oder zwei erneuten B-Verstößen in der neuen Probezeit in der Regel ein MPU-Gutachten anzuordnen. Nach BVerwG 3 C 3.23 gilt das unter bestimmten Voraussetzungen auch nach einem vorherigen Verzicht. Das ist von der normalen ersten Probezeit zu unterscheiden.
 
 ### Hilft MPUFIX bei Punkte-MPU?
 
