@@ -43,6 +43,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 - https://mpufix.de/blog/mpu-kosten.html
 - https://mpufix.de/blog/mpu-recht-fev-anordnung.html
+- https://mpufix.de/blog/mpu-wegen-aggression-beleidigung.html
 - https://mpufix.de/blog/probezeit-a-verstoss-mpu-neuerteilung.html
 - https://mpufix.de/blog/medizinalcannabis-fuehrerschein-mpu.html
 - https://mpufix.de/blog/cannabis-mpu-recht-2026.html
@@ -75,6 +76,10 @@ Nein. Der BayVGH-Beschluss vom 6. August 2026, Az. 11 ZB 26.1062, zeigt, dass tr
 ### Führt ein erneuter A-Verstoß in der neuen Probezeit zur MPU?
 
 Nach § 2a Abs. 5 Satz 5 StVG ist nach einer einschlägigen Entziehung, Neuerteilung und einem erneuten A-Verstoß oder zwei erneuten B-Verstößen in der neuen Probezeit in der Regel ein MPU-Gutachten anzuordnen. Nach BVerwG 3 C 3.23 gilt das unter bestimmten Voraussetzungen auch nach einem vorherigen Verzicht. Das ist von der normalen ersten Probezeit zu unterscheiden.
+
+### Kann eine Beleidigung im Straßenverkehr zu einer MPU führen?
+
+Nicht automatisch. Nach VGH München 11 CS 26.120 können aber wiederholte, heftige und verkehrsbezogene Beleidigungen eine MPU-Anordnung rechtfertigen, wenn sie konkrete Zweifel an Impulskontrolle und charakterlicher Fahreignung begründen. Entscheidend bleiben die Umstände des Einzelfalls und die rechtmäßige Begründung der Behörde.
 
 ### Hilft MPUFIX bei Punkte-MPU?
 
