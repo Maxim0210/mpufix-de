@@ -40,6 +40,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/standorte.html
 - https://mpufix.de/mpu-checkliste.html
 - https://mpufix.de/ueber-mich.html
+- https://mpufix.de/blog/mpu-wegen-alkohol.html
 - https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 - https://mpufix.de/blog/rueckfallrisiko-mpu-erklaeren.html
 - https://mpufix.de/blog/mpu-kosten.html
@@ -89,6 +90,10 @@ Ja. Bei einer Punkte-MPU geht es um wiederholtes Verkehrsverhalten, Verantwortun
 ### Ist ein erneuter Alkoholkonsum nach früherer Abhängigkeit nur ein Ausrutscher?
 
 Das kann nicht pauschal entschieden werden. VGH München 11 CS 26.481 betrifft zuvor diagnostizierte Alkoholabhängigkeit und besondere Tatsachen; außerhalb eindeutiger Fälle ist die Einordnung eines erneuten Konsums gutachterlich zu klären. Bei einer behördlichen Gutachtenfrist sollte die konkrete Anordnung anwaltlich geprüft werden. MPUFIX unterstützt nur die Vorbereitung, nicht die Rechtsberatung.
+
+### Wann reicht bei Alkohol ein ärztliches Gutachten, wann droht die direkte Entziehung?
+
+Begründen Tatsachen nur den Verdacht auf Alkoholabhängigkeit, ohne dass sie hinreichend sicher feststeht, sieht § 13 Satz 1 Nr. 1 FeV zunächst ein ärztliches Gutachten vor. Steht eine nicht überwundene Alkoholabhängigkeit dagegen hinreichend fest, kann die Behörde nach § 11 Abs. 7 und § 46 Abs. 1 FeV ohne weiteres Fahreignungsgutachten entziehen. VGH München 11 CS 26.391 betont zugleich, dass ein stark erhöhter EtG-Haarwert allein eine Alkoholabhängigkeit nicht ohne Weiteres beweist. Die konkrete Diagnose, Anordnung und Frist sollte rechtlich geprüft werden: https://mpufix.de/blog/mpu-wegen-alkohol.html
 
 ### Was ist der beste Einstieg?
 
