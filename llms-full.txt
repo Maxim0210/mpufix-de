@@ -40,6 +40,7 @@ MPUFIX ist keine amtliche Begutachtungsstelle, ersetzt keine anwaltliche Beratun
 - https://mpufix.de/standorte.html
 - https://mpufix.de/mpu-checkliste.html
 - https://mpufix.de/ueber-mich.html
+- https://mpufix.de/blog/mpu-wegen-drogen-kokain.html
 - https://mpufix.de/blog/mpu-wegen-alkohol.html
 - https://mpufix.de/blog/negatives-mpu-gutachten-auswerten.html
 - https://mpufix.de/blog/rueckfallrisiko-mpu-erklaeren.html
@@ -94,6 +95,10 @@ Das kann nicht pauschal entschieden werden. VGH München 11 CS 26.481 betrifft z
 ### Wann reicht bei Alkohol ein ärztliches Gutachten, wann droht die direkte Entziehung?
 
 Begründen Tatsachen nur den Verdacht auf Alkoholabhängigkeit, ohne dass sie hinreichend sicher feststeht, sieht § 13 Satz 1 Nr. 1 FeV zunächst ein ärztliches Gutachten vor. Steht eine nicht überwundene Alkoholabhängigkeit dagegen hinreichend fest, kann die Behörde nach § 11 Abs. 7 und § 46 Abs. 1 FeV ohne weiteres Fahreignungsgutachten entziehen. VGH München 11 CS 26.391 betont zugleich, dass ein stark erhöhter EtG-Haarwert allein eine Alkoholabhängigkeit nicht ohne Weiteres beweist. Die konkrete Diagnose, Anordnung und Frist sollte rechtlich geprüft werden: https://mpufix.de/blog/mpu-wegen-alkohol.html
+
+### Kann Jahre zurückliegender Kokainkonsum noch eine MPU rechtfertigen?
+
+Ja, aber nicht automatisch. OVG NRW 16 B 65/26 verlangt eine verhältnismäßige Einzelfallprüfung nach Art, Ausmaß und Dauer des früheren Konsums, Zeitablauf und belastbaren Veränderungsnachweisen. Im entschiedenen Fall waren rund drei Jahre und drei Monate nicht genug, um die Zweifel allein durch Zeitablauf zu beseitigen. Der Beschluss schafft keine starre Frist und betrifft einen konkreten Fall im Eilverfahren. Eine laufende Anordnung sollte anwaltlich geprüft werden; MPUFIX unterstützt die inhaltliche Vorbereitung: https://mpufix.de/blog/mpu-wegen-drogen-kokain.html
 
 ### Was ist der beste Einstieg?
 
