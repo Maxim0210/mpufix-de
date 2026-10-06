@@ -2402,13 +2402,19 @@ input:focus, select:focus, textarea:focus {
     display: none;
   }
   body.privacy-notice-open .floating-whatsapp {
-    bottom: clamp(210px, 30vh, 250px);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
   }
   body.privacy-notice-open .floating-call {
-    bottom: calc(clamp(210px, 30vh, 250px) + 60px);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
   }
   body.privacy-notice-open .chat-toggle {
-    bottom: clamp(210px, 30vh, 250px);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
   }
 }
 
@@ -2833,10 +2839,18 @@ input:focus, select:focus, textarea:focus {
 .cost-guide-hero {
   background: #f7f9fd;
   border-bottom: 1px solid var(--line);
+  padding-bottom: clamp(44px, 6vw, 72px);
+  padding-top: clamp(44px, 6vw, 72px);
 }
 
 .cost-guide-hero .page-hero-inner {
   max-width: 1060px;
+}
+
+.cost-guide-hero h1 {
+  font-size: clamp(40px, 5vw, 64px);
+  max-width: 940px;
+  text-wrap: balance;
 }
 
 .cost-guide-hero .page-hero-inner > p:not(.eyebrow) {
@@ -2888,6 +2902,47 @@ input:focus, select:focus, textarea:focus {
 
 .cost-answer-intro h2 {
   font-size: clamp(30px, 4vw, 50px);
+}
+
+.cost-provider-quickfacts {
+  background: #f7f9fd;
+  border-top: 1px solid #dce4f0;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cost-provider-quickfacts article {
+  background: #fff;
+  padding: 24px clamp(18px, 3vw, 30px);
+}
+
+.cost-provider-quickfacts article + article {
+  border-left: 1px solid #dce4f0;
+}
+
+.cost-provider-quickfacts span {
+  color: var(--purple);
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.cost-provider-quickfacts strong {
+  color: var(--ink);
+  display: block;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.cost-provider-quickfacts p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
 }
 
 .cost-table-wrap {
@@ -3139,9 +3194,18 @@ input:focus, select:focus, textarea:focus {
 }
 
 @media (max-width: 620px) {
+  .cost-guide-hero {
+    padding-bottom: 34px;
+    padding-top: 34px;
+  }
+
   .cost-guide-hero .page-hero-inner {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .cost-guide-hero h1 {
+    font-size: 34px;
   }
 
   .cost-hero-actions .button,
@@ -3160,6 +3224,15 @@ input:focus, select:focus, textarea:focus {
 
   .cost-answer-intro {
     padding: 24px 18px;
+  }
+
+  .cost-provider-quickfacts {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-provider-quickfacts article + article {
+    border-left: 0;
+    border-top: 1px solid #dce4f0;
   }
 
   .cost-saving-grid,
