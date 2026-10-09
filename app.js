@@ -957,6 +957,16 @@ function setupLocationFinder() {
 
 function setupPrintableChecklist() {
   document.getElementById("printChecklist")?.addEventListener("click", () => window.print());
+  document.getElementById("copyChecklistLink")?.addEventListener("click", async () => {
+    const status = document.getElementById("checklistShareStatus");
+    const url = "https://mpufix.de/mpu-checkliste.html?utm_source=empfehlung&utm_medium=link&utm_campaign=checkliste";
+    try {
+      await navigator.clipboard.writeText(url);
+      if (status) status.textContent = "Link kopiert. Deine angekreuzten Punkte werden nicht geteilt.";
+    } catch {
+      if (status) status.textContent = `Bitte nutze diesen Link: ${url}`;
+    }
+  });
 }
 
 setupLocationFinder();

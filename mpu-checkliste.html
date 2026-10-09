@@ -32,7 +32,7 @@
             "description": "Praktische Checkliste für Unterlagen, Fragestellung, Nachweise, Veränderung und Gesprächsvorbereitung.",
             "author": {"@type":"Person","name":"Max Dilewski"},
             "publisher": {"@type":"Organization","name":"MPUFIX.de","url":"https://mpufix.de/"},
-            "dateModified": "2026-07-12",
+            "dateModified": "2026-10-09",
             "inLanguage": "de-DE",
             "mainEntityOfPage": "https://mpufix.de/mpu-checkliste.html"
           }
@@ -72,9 +72,11 @@
           <p>Nutze die Liste am Handy oder drucke sie aus. Sie hilft dir, Unterlagen, Nachweise und deine persönliche Vorbereitung vollständig zu sortieren.</p>
           <div class="hero-actions no-print">
             <button class="button primary" id="printChecklist" type="button">Checkliste drucken</button>
+            <button class="button secondary" id="copyChecklistLink" type="button">Link kopieren</button>
             <a class="button secondary" href="mpu-sofortanalyse.html">Fall kostenlos einordnen</a>
           </div>
-          <p class="checklist-meta">Aktualisiert am 12. Juli 2026 · Kostenlos nutzbar · Keine Anmeldung erforderlich</p>
+          <p id="checklistShareStatus" role="status" aria-live="polite"></p>
+          <p class="checklist-meta">Aktualisiert am 9. Oktober 2026 · Kostenlos nutzbar · Keine Anmeldung erforderlich</p>
         </div>
       </section>
 
@@ -152,9 +154,12 @@
           <div>
             <strong>Empfohlener Linktext</strong>
             <code>Kostenlose MPU-Checkliste von MPUFIX.de</code>
+            <p><a href="https://mpufix.de/mpu-checkliste.html?utm_source=empfehlung&amp;utm_medium=link&amp;utm_campaign=checkliste">Kostenlose MPU-Checkliste öffnen</a></p>
           </div>
           <a class="button secondary dark" href="mailto:m-dilew@web.de?subject=MPUFIX%20Checkliste%20und%20Kooperation">Kooperation anfragen</a>
         </div>
+        <p><a href="https://wa.me/?text=Kostenlose%20MPU-Checkliste%20zum%20Sortieren%20von%20Unterlagen%20und%20Vorbereitung%3A%20https%3A%2F%2Fmpufix.de%2Fmpu-checkliste.html%3Futm_source%3Dempfehlung%26utm_medium%3Dwhatsapp%26utm_campaign%3Dcheckliste" target="_blank" rel="noopener">Checkliste über WhatsApp empfehlen</a></p>
+        <p>Der geteilte Link enthält keine persönlichen Antworten oder angekreuzten Punkte. Bitte teile keine Gutachten, Konsumdaten oder Behördenunterlagen in öffentlichen Gruppen.</p>
       </section>
 
       <section class="section contact-section no-print">
@@ -185,6 +190,6 @@
         <a href="agb.html">AGB</a>
       </nav>
     </footer>
-    <script src="app.js?v=20260712-1"></script>
+    <script src="app.js?v=20261009-checklist"></script>
   </body>
 </html>
