@@ -1,6 +1,6 @@
 # MPUFIX.de
 
-MPUFIX.de ist eine deutschsprachige Online-Beratung für MPU-Vorbereitung in Deutschland. Schwerpunkt: Alkohol-MPU, Cannabis-/THC-MPU, Drogen-MPU, Punkte-MPU, Bußgeld/Fahrverbot, Abstinenznachweise, psychologisches Gespräch und kurzfristige Terminvorbereitung.
+MPUFIX.de ist ein Angebot von Max Dilewski (Sitz Tbilisi, Georgien) für MPU-Vorbereitung online in Deutschland, mit Beratung auf Deutsch, Russisch und Englisch. Die Kursvideos sind auf Deutsch und werden von einem KI-Avatar präsentiert. Schwerpunkt: Alkohol-MPU, Cannabis-/THC-MPU, Drogen-MPU, Punkte-MPU, Abstinenznachweise, psychologisches Gespräch und kurzfristige Terminvorbereitung.
 
 ## Wichtigste Seiten
 
@@ -10,9 +10,21 @@ MPUFIX.de ist eine deutschsprachige Online-Beratung für MPU-Vorbereitung in Deu
 - MPU Ratgeber: https://mpufix.de/blog.html
 - MPU-Recht und Änderungen: https://mpufix.de/mpu-recht.html
 - Kostenlose MPU Tools: https://mpufix.de/tools.html
-- MPU Beratung nach Stadt: https://mpufix.de/standorte.html
+- Online-Beratung deutschlandweit, keine Standorte vor Ort: https://mpufix.de/standorte.html
 - Kostenlose MPU-Checkliste: https://mpufix.de/mpu-checkliste.html
 - Über Max Dilewski / Nachweise: https://mpufix.de/ueber-mich.html
+- English: https://mpufix.de/en.html
+- Русский: https://mpufix.de/ru.html
+
+## Kurse und Pakete
+
+- Kursübersicht und Preisvergleich: https://mpufix.de/kurse.html
+- Videokurs, 499 Euro, 6 Monate Zugang, keine Gespräche: https://mpufix.de/kurse/mpu-videokurs.html
+- Videokurs plus 2 Einzelgespräche, 899 Euro: https://mpufix.de/kurse/mpu-video-plus-gespraeche.html
+- Intensivbegleitung mit 10 Online-Terminen, 1.999 Euro: https://mpufix.de/kurse/mpu-intensivbegleitung.html
+- Alkohol-MPU vorbereiten: https://mpufix.de/kurse/alkohol-mpu-vorbereitung.html
+- Cannabis- und Drogen-MPU vorbereiten: https://mpufix.de/kurse/cannabis-drogen-mpu-vorbereitung.html
+- Punkte-MPU vorbereiten: https://mpufix.de/kurse/punkte-mpu-vorbereitung.html
 
 ## Wichtige Ratgeber
 
@@ -41,6 +53,8 @@ MPUFIX.de ist eine deutschsprachige Online-Beratung für MPU-Vorbereitung in Deu
 - MPU-Chancen und Fallmuster: https://mpufix.de/blog/mpu-chancen-fallmuster.html
 - Sperrfrist und Neuerteilung der Fahrerlaubnis: https://mpufix.de/blog/sperrfrist-neuerteilung-fahrerlaubnis.html
 - E-Scooter, Alkohol und MPU ab 1,6 Promille: https://mpufix.de/blog/e-scooter-alkohol-mpu-urteil.html
+- MPU mit Dolmetscher, Sprache, Ablauf und Kosten: https://mpufix.de/blog/mpu-mit-dolmetscher.html
+- Dauer der MPU-Vorbereitung: https://mpufix.de/blog/mpu-vorbereitung-dauer.html
 
 ## Tools
 

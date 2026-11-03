@@ -2,19 +2,19 @@ const WHATSAPP_NUMBER = "491624710700";
 
 const languageConfig = {
   de: {
-    label: "Wir sprechen und zeigen die Seite auf:",
+    label: "Sprache:",
     menu: "Menü",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen"
   },
   ru: {
-    label: "Мы говорим и показываем сайт на:",
+    label: "Язык:",
     menu: "Меню",
     openMenu: "Открыть меню",
     closeMenu: "Закрыть меню"
   },
   en: {
-    label: "We speak and show this page in:",
+    label: "Language:",
     menu: "Menu",
     openMenu: "Open menu",
     closeMenu: "Close menu"
@@ -387,36 +387,32 @@ function setupMpuTools() {
     costButton.addEventListener("click", () => {
       const reason = document.getElementById("costReason")?.value || "points";
       const prep = Number(document.getElementById("costPrep")?.value || 0);
-      const hair = Math.max(0, Number(document.getElementById("hairCount")?.value || 0));
-      const urine = Math.max(0, Number(document.getElementById("urineCount")?.value || 0));
-      const baseCosts = {
-        points: {
-          range: [500, 500],
-          source: "Das ADAC-Rechenbeispiel setzt für eine Punkte-MPU rund 500 Euro Begutachtungskosten an."
-        },
-        alcohol: {
-          range: [700, 700],
-          source: "Das ADAC-Rechenbeispiel setzt für eine Alkohol-MPU rund 700 Euro Begutachtungskosten an."
-        },
-        drugs: {
-          range: [800, 800],
-          source: "Das ADAC-Rechenbeispiel setzt für eine Drogen-MPU rund 800 Euro Begutachtungskosten an."
-        },
-        mixed: {
-          range: [400, 1100],
-          source: "Für Mischfälle gibt es in den geprüften Quellen keine belastbare eigene Spanne. Der Rechner nutzt deshalb den aktuellen allgemeinen Rahmen aus ADAC und TÜV NORD."
-        }
+      const hairInput = document.getElementById("hairCount");
+      const urineInput = document.getElementById("urineCount");
+      const hair = Math.min(6, Math.max(0, Math.trunc(Number(hairInput?.value || 0))));
+      const urine = Math.min(12, Math.max(0, Math.trunc(Number(urineInput?.value || 0))));
+      if (hairInput) hairInput.value = hair;
+      if (urineInput) urineInput.value = urine;
+      const [baseMin, baseMax] = [550, 1100];
+      const reasonNotes = {
+        points: "Gutachten zu Punkten oder Straftaten sind laut ADAC günstiger als Alkohol-, Drogen- oder Kombinationsgutachten. Das ADAC-Beispiel für 8 Punkte liegt bei rund 500 Euro und damit unter diesem Rahmen, dein Preis kann also niedriger sein.",
+        alcohol: "Der ADAC rechnet in einem Beispiel für eine Alkohol-MPU mit rund 700 Euro. Das ist laut ADAC weder Mindest-, Durchschnitts- noch Höchstpreis.",
+        drugs: "Der ADAC rechnet in einem Beispiel für eine Drogen-MPU mit rund 800 Euro. Das ist laut ADAC weder Mindest-, Durchschnitts- noch Höchstpreis.",
+        mixed: "Für Mischfälle nennen die geprüften Quellen keinen eigenen Preis. Laut ADAC sind kombinierte Fragestellungen teurer als eine MPU wegen 8 Punkten."
       };
-      const baseCost = baseCosts[reason] || baseCosts.points;
-      const [baseMin, baseMax] = baseCost.range;
-      const min = baseMin + prep + hair * 200 + urine * 70;
-      const max = baseMax + prep + hair * 300 + urine * 100;
-      const rangeLabel = min === max
-        ? `etwa ${min.toLocaleString("de-DE")} Euro`
-        : `${min.toLocaleString("de-DE")} bis ${max.toLocaleString("de-DE")} Euro`;
+      const reasonNote = reasonNotes[reason] || reasonNotes.points;
+      const proofMin = hair * 200 + urine * 70;
+      const proofMax = hair * 300 + urine * 100;
+      const euro = (value) => value.toLocaleString("de-DE");
+      const min = baseMin + prep + proofMin;
+      const max = baseMax + prep + proofMax;
+      const rangeLabel = `${euro(min)} bis ${euro(max)} Euro`;
+      const parts = [`Begutachtung ${euro(baseMin)} bis ${euro(baseMax)} Euro`];
+      if (prep) parts.push(`Vorbereitung ${euro(prep)} Euro`);
+      if (proofMax) parts.push(`Nachweise ${euro(proofMin)} bis ${euro(proofMax)} Euro`);
       const result = document.getElementById("costResult");
       if (result) {
-        result.innerHTML = `<span>Grobe Orientierung</span><strong>${rangeLabel}</strong><p>${baseCost.source} Anbieterpreise können abweichen. Führerscheinantrag, zusätzliche Unterlagen und Auslagen sind nicht enthalten.</p>`;
+        result.innerHTML = `<span>Grobe Orientierung</span><strong>${rangeLabel}</strong><p>Enthalten: ${parts.join(", ")}.</p><p>${reasonNote} Anbieterpreise können abweichen. Führerscheinantrag, zusätzliche Unterlagen und Auslagen sind nicht enthalten.</p>`;
       }
     });
   }
@@ -432,7 +428,10 @@ function setupMpuTools() {
       const endDate = new Date(`${startValue}T12:00:00`);
       endDate.setMonth(endDate.getMonth() + months);
       const formatted = endDate.toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" });
-      result.innerHTML = `<span>Grobe Planung</span><strong>bis etwa ${formatted}</strong><p>Für ${topic} solltest du vor dem Start klären, welche Nachweisform akzeptiert wird und ob der Zeitraum zu deinem MPU-Termin passt.</p>`;
+      const hint = topic === "Noch unsicher"
+        ? "Kläre vor dem Start, welche Nachweisform akzeptiert wird und ob der Zeitraum zu deinem MPU-Termin passt."
+        : `Für ${topic} solltest du vor dem Start klären, welche Nachweisform akzeptiert wird und ob der Zeitraum zu deinem MPU-Termin passt.`;
+      result.innerHTML = `<span>Grobe Planung</span><strong>bis etwa ${formatted}</strong><p>${hint}</p>`;
     });
   }
 
@@ -443,14 +442,14 @@ function setupMpuTools() {
       const score = checks.filter((item) => item.checked).length;
       const result = document.getElementById("readinessResult");
       if (!result) return;
-      let title = "Noch nicht stabil genug.";
-      let text = "Deine Antworten haben wahrscheinlich noch Lücken. Starte mit Struktur, bevor du dich auf den MPU-Termin verlässt.";
+      let title = "Noch einige Lücken.";
+      let text = "Deine Antworten haben wahrscheinlich noch Lücken. Kläre sie, bevor du einen MPU-Termin machst.";
       if (score >= 6) {
         title = "Gute Grundlage.";
-        text = "Du hast viele Kernpunkte vorbereitet. Jetzt geht es darum, die Antworten persönlich, konkret und nicht auswendig klingen zu lassen.";
+        text = "Du hast viele Kernpunkte vorbereitet. Prüfe jetzt, ob deine Antworten wirklich deinem Verlauf entsprechen und du sie mit eigenen Beispielen belegen kannst.";
       } else if (score >= 4) {
-        title = "Ansatz ist da, aber noch unsicher.";
-        text = "Einige wichtige Punkte sind vorhanden. Die größten Risiken liegen meist bei Auslösern, Rückfallplan und glaubwürdiger Veränderung.";
+        title = "Guter Ansatz, aber noch Lücken.";
+        text = "Einige wichtige Punkte sind vorhanden. Prüfe besonders deine Auslöser, deinen Plan zur Rückfallvermeidung und was sich in deinem Alltag tatsächlich verändert hat.";
       }
       result.innerHTML = `<span>${score} von ${checks.length} Punkten</span><strong>${title}</strong><p>${text}</p>`;
     });
@@ -498,7 +497,7 @@ function setupMpuTools() {
           label: detail === "outer" ? "Geschwindigkeit außerorts" : "Geschwindigkeit innerorts",
           fine: row[1],
           points: row[2],
-          ban: row[3],
+          ban: detail === "repeat" && speedOver >= 26 && row[3] === "kein Regelfahrverbot" ? "1 Monat möglich beim zweiten Verstoß ab 26 km/h innerhalb eines Jahres" : row[3],
           risk: row[2] >= 2 || currentPoints + row[2] >= 6 ? "erhöht" : "niedrig bis mittel",
           advice: "Bei einzelnen Geschwindigkeitsverstößen geht es oft um Punkte und Fahrverbot. MPU-relevant wird es vor allem bei vielen Punkten, Wiederholung, Gefährdung oder Entziehung."
         };
@@ -507,17 +506,17 @@ function setupMpuTools() {
       const estimates = {
         alcohol: {
           label: "Alkohol am Steuer",
-          fine: detail === "repeat" || detail === "danger" ? 1000 : 500,
+          fine: detail === "repeat" ? 1000 : 500,
           points: 2,
-          ban: detail === "repeat" || detail === "danger" ? "bis 3 Monate möglich" : "1 Monat möglich",
+          ban: detail === "repeat" ? "3 Monate möglich" : detail === "danger" ? "1 Monat als Regelsatz, bei Gefährdung oder Unfall droht zusätzlich ein Strafverfahren mit Entziehung" : "1 Monat möglich",
           risk: detail === "repeat" || detail === "danger" ? "hoch" : "erhöht",
-          advice: "Bei Alkohol zählt für die MPU nicht nur der Wert. Wichtig sind Trinkmuster, Auslöser, Veränderung, Rückfallplan und passende Nachweise."
+          advice: "Bei Alkohol zählt für die MPU nicht nur der Wert. Wichtig sind Trinkmuster, Auslöser, Veränderung, der Plan zur Rückfallvermeidung und passende Nachweise."
         },
         thc: {
           label: "THC oder Cannabis am Steuer",
-          fine: detail === "repeat" || detail === "danger" ? 1000 : 500,
+          fine: detail === "repeat" ? 1000 : 500,
           points: 2,
-          ban: detail === "repeat" || detail === "danger" ? "bis 3 Monate möglich" : "1 Monat möglich",
+          ban: detail === "repeat" ? "3 Monate möglich" : detail === "danger" ? "1 Monat als Regelsatz, bei Gefährdung oder Unfall droht zusätzlich ein Strafverfahren mit Entziehung" : "1 Monat möglich",
           risk: "erhöht",
           advice: "Bei THC sollte schnell geklärt werden, welcher Wert vorliegt, ob Mischkonsum, Probezeit oder frühere Auffälligkeiten eine Rolle spielen und welche Nachweise sinnvoll sind."
         },
@@ -531,11 +530,11 @@ function setupMpuTools() {
         },
         redlight: {
           label: "Rotlichtverstoß",
-          fine: detail === "danger" || detail === "repeat" ? 200 : 90,
-          points: detail === "danger" || detail === "repeat" ? 2 : 1,
-          ban: detail === "danger" || detail === "repeat" ? "1 Monat möglich" : "kein Regelfahrverbot",
+          fine: detail === "danger" ? 200 : 90,
+          points: detail === "danger" ? 2 : 1,
+          ban: detail === "danger" ? "1 Monat möglich" : "kein Regelfahrverbot, außer die Ampel war länger als 1 Sekunde rot",
           risk: detail === "danger" || currentPoints >= 5 ? "erhöht" : "niedrig bis mittel",
-          advice: "Beim Rotlicht zählt, ob es ein einfacher oder qualifizierter Verstoß war und ob Gefährdung oder Unfall im Raum stehen."
+          advice: "Beim Rotlicht zählt, ob es ein einfacher oder qualifizierter Verstoß war und ob Gefährdung oder Unfall im Raum stehen. War die Ampel länger als 1 Sekunde rot, gelten 200 Euro, 2 Punkte und 1 Monat Fahrverbot."
         },
         points: {
           label: "Punkte in Flensburg",
@@ -543,7 +542,7 @@ function setupMpuTools() {
           points: 0,
           ban: currentPoints >= 8 ? "Entziehung der Fahrerlaubnis möglich" : "abhängig vom Anlass",
           risk: currentPoints >= 8 ? "hoch" : currentPoints >= 6 ? "erhöht" : "mittel",
-          advice: "Ab mehreren Punkten geht es nicht nur um Einzelverstöße. Für eine MPU zählt, ob du dein Fahrverhalten nachvollziehbar verändert hast."
+          advice: "Bei mehreren Punkten geht es nicht nur um Einzelverstöße. Für eine MPU zählt, ob du dein Fahrverhalten nachvollziehbar verändert hast."
         }
       };
 
@@ -734,31 +733,31 @@ function botReply(message) {
   const text = message.toLowerCase();
 
   if (includesAny(text, ["preis", "kosten", "kostet", "paket", "499", "899", "1999"])) {
-    return { text: "Es gibt drei klare Wege: 499 EUR für den Videozugang, 899 EUR mit 2 persönlichen Gesprächen und 1.999 EUR für 10 Online-Termine. Wenn du nicht nur irgendwas schauen willst, sondern deinen Fall wirklich sauber einordnen möchtest, ist das 899-EUR-Paket meistens der stärkste Einstieg. Soll ich dich direkt zu WhatsApp weiterleiten?", escalate: false };
+    return { text: "Es gibt drei Pakete: 499 € für den Videokurs, 899 € mit 2 persönlichen Online-Gesprächen und 1.999 € mit 10 Online-Terminen. Welches passt, hängt von deinem Fall ab. Die Sofortanalyse gibt dir eine erste Richtung.", escalate: false };
   }
   if (includesAny(text, ["welches paket", "passt", "empfehlung", "starten", "anfangen"])) {
-    return { text: "Wenn dein Fall einfach ist und du selbstständig arbeitest, reicht oft der Videozugang. Wenn du unsicher bist, Nachweise klären musst oder bald Termin hast, ist persönliche Begleitung deutlich sinnvoller. Der schnellste Weg: Schreib kurz per WhatsApp, warum du zur MPU musst. Dann bekommst du eine ehrliche Einschätzung, ohne Verkaufsdruck.", escalate: true };
+    return { text: "Wenn dein Fall einfach ist und du selbstständig arbeitest, reicht oft der Videokurs. Wenn du unsicher bist, Nachweise klären musst oder bald Termin hast, ist persönliche Begleitung deutlich sinnvoller. Der schnellste Weg: Schreib kurz per WhatsApp, warum du zur MPU musst. Dann bekommst du eine ehrliche Einschätzung, ohne Verkaufsdruck.", escalate: true };
   }
   if (includesAny(text, ["online", "raum", "login", "zugang", "videos", "videokurs", "6 monate"])) {
-    return { text: "Der Online-Raum läuft 6 Monate. Du bekommst Videos, Checklisten und klare Aufgaben, damit du nicht planlos durch YouTube, Foren und Halbwissen gehst. Der Vorteil: Du weißt jeden Schritt vorher und kannst dich ruhiger vorbereiten.", escalate: false };
+    return { text: "Beim Videokurs läuft der Online-Raum 6 Monate. Du bekommst Videos, Checklisten und Aufgaben. Der Vorteil: Du bekommst einen festen Ablauf für die allgemeine Vorbereitung.", escalate: false };
   }
   if (includesAny(text, ["alkohol", "promille", "trunken"])) {
-    return { text: "Bei Alkohol geht es nicht um perfekte Sätze, sondern um glaubwürdige Veränderung: Trinkmuster, Auslöser, Rückfallstrategie und mögliche Nachweise. Genau hier machen viele Fehler. Schreib per WhatsApp Promillewert, Datum und ob ein Termin steht, dann kann dein nächster Schritt sauber eingeordnet werden.", escalate: true };
+    return { text: "Bei Alkohol geht es nicht um perfekte Sätze, sondern um glaubwürdige Veränderung: Trinkmuster, Auslöser, die Strategie zur Rückfallvermeidung und mögliche Nachweise. Genau hier machen viele Fehler. Schreib per WhatsApp Promillewert, Datum und ob ein Termin steht, dann kann dein nächster Schritt eingeordnet werden.", escalate: true };
   }
   if (includesAny(text, ["droge", "drogen", "cannabis", "thc", "kokain", "amphetamin"])) {
-    return { text: "Bei Drogen oder Cannabis entscheidet frühe Planung oft über Stress oder Kontrolle. Wichtig sind Substanz, letzter Konsum, Abstinenz, Screening und Aktenlage. Schreib das kurz per WhatsApp, damit du keine Zeit mit falschen Schritten verlierst.", escalate: true };
+    return { text: "Bei Drogen oder Cannabis solltest du früh planen, weil Nachweise Zeit brauchen. Wichtig sind Substanz, letzter Konsum, Abstinenz, Screening und Aktenlage. Schreib das kurz per WhatsApp, damit du keine Zeit mit falschen Schritten verlierst.", escalate: true };
   }
   if (includesAny(text, ["abstinenz", "nachweis", "urin", "haar", "haaranalyse", "screening"])) {
-    return { text: "Ob Abstinenznachweise nötig sind, hängt stark vom Einzelfall ab. Falsch geplant kostet das Zeit und Geld. Schreib per WhatsApp, worum es geht und welche Nachweise du schon hast. Dann bekommst du eine klare Richtung.", escalate: true };
+    return { text: "Ob Abstinenznachweise nötig sind, hängt stark vom Einzelfall ab. Falsch geplante Nachweise kosten Zeit und Geld. Schreib per WhatsApp, worum es geht und welche Nachweise du schon hast. Dann bekommst du eine klare Richtung.", escalate: true };
   }
   if (includesAny(text, ["punkte", "blitzer", "geschwindigkeit", "rotlicht"])) {
-    return { text: "Bei Punkten geht es darum, dass deine Veränderung nachvollziehbar wirkt: Risikomuster, Einsicht, neue Regeln und Alltag. Der 899-EUR-Plan passt oft besser als nur Videos, weil deine persönliche Erklärung entscheidend ist.", escalate: false };
+    return { text: "Bei Punkten geht es darum, ob du dein Verhalten tatsächlich verändert hast und das belegen kannst: Risikomuster, Einsicht, neue Regeln und Alltag. Die Videos zu Punkten und Verkehrsstraftaten sind noch in Produktion, deshalb passt derzeit ein Paket mit persönlichen Gesprächen.", escalate: false };
   }
   if (includesAny(text, ["termin", "bald", "morgen", "woche", "frist", "eilig"])) {
     return { text: "Wenn dein Termin bald ist, bitte nicht weiter raten. Dann zählt zuerst eine Risikoanalyse: Termin, Anlass, Nachweise, Gutachten oder Akte. Schreib sofort per WhatsApp, damit klar ist, was noch realistisch machbar ist.", escalate: true };
   }
   if (includesAny(text, ["bestehen", "garantie", "sicher", "durchfallen", "nicht bestanden"])) {
-    return { text: "Eine Garantie wäre unseriös. Was aber möglich ist: deine Schwächen finden, deine Geschichte sauber aufarbeiten und typische Fehler vermeiden. Wenn du schon einmal nicht bestanden hast, ist WhatsApp der richtige nächste Schritt.", escalate: true };
+    return { text: "Eine Garantie wäre unseriös. Was aber möglich ist: deine Schwächen finden, deine Geschichte aufarbeiten und typische Fehler vermeiden. Wenn du schon einmal nicht bestanden hast, ist WhatsApp der richtige nächste Schritt.", escalate: true };
   }
 
   return { text: "Ich kann dir einfache Fragen zu Kurs, Paketen, Online-Raum, Kosten, Alkohol, Drogen, Cannabis, Punkten und Nachweisen beantworten. Sobald es um deinen konkreten Fall geht, ist WhatsApp besser, weil dort die wichtigen Details schnell geklärt werden.", escalate: false };
@@ -793,14 +792,16 @@ document.querySelector("#chatToggle")?.addEventListener("click", () => {
   const box = document.querySelector("#chatBox");
   const next = box.hidden;
   box.hidden = !next;
+  document.body.classList.toggle("chat-open", next);
   document.querySelector("#chatToggle").setAttribute("aria-expanded", String(next));
   if (next && !document.querySelector("#chatMessages").children.length) {
-    addChatMessage("Hi, ich bin die MPUFIX Assistentin. Ich beantworte dir schnell Fragen zum Kurs, zu Paketen, Kosten, Online-Raum, Nachweisen und Termindruck. Wenn dein Fall individuell ist, leite ich dich direkt zu WhatsApp weiter.", "bot");
+    addChatMessage("Hallo, ich bin der automatische MPUFIX-Assistent. Ich antworte mit vorbereiteten Texten auf Fragen zum Kurs, zu Paketen, Kosten, Online-Raum, Nachweisen und Termindruck. Bei deinem konkreten Fall hilft dir ein Mensch per WhatsApp.", "bot");
   }
 });
 
 document.querySelector("#chatClose")?.addEventListener("click", () => {
   document.querySelector("#chatBox").hidden = true;
+  document.body.classList.remove("chat-open");
   document.querySelector("#chatToggle").setAttribute("aria-expanded", "false");
 });
 
@@ -852,14 +853,14 @@ function getRiskResult() {
     }
     return {
       title: "Good starting point",
-      text: "Your case looks more manageable at first glance. Proof, process and interview strategy should still be organised early."
+      text: "Your case looks more manageable at first glance. Proof, process and interview preparation should still be organised early."
     };
   }
   if (lang === "ru") {
     if (riskScore >= 9) {
       return {
         title: "Нужна точная проверка",
-        text: "Ваш случай не стоит готовить только по видео. Термин, документы или данные из дела могут быть решающими. Лучший следующий шаг — личная оценка в WhatsApp."
+        text: "Ваш случай не стоит готовить только по видео. Дата экспертизы, документы или данные из дела могут быть решающими. Лучший следующий шаг — личная оценка в WhatsApp."
       };
     }
     if (riskScore >= 5) {
@@ -870,7 +871,7 @@ function getRiskResult() {
     }
     return {
       title: "Хорошая стартовая точка",
-      text: "На первый взгляд случай выглядит более понятным. Но документы, процесс и стратегия разговора должны быть подготовлены заранее."
+      text: "На первый взгляд случай выглядит более понятным. Но документы, процесс и подготовка к разговору должны быть подготовлены заранее."
     };
   }
   if (riskScore >= 9) {
@@ -881,13 +882,13 @@ function getRiskResult() {
   }
   if (riskScore >= 5) {
     return {
-      title: "Mittleres Risiko",
-      text: "Du hast einige Punkte, die vor der MPU sauber geklärt werden sollten. Der Online-Raum kann helfen, aber ein persönliches Gespräch macht deine Vorbereitung deutlich zielgerichteter."
+      title: "Mittlerer Klärungsbedarf",
+      text: "Einige Fragen sollten vor der MPU geklärt werden. Der Online-Raum kann helfen, aber ein persönliches Gespräch macht deine Vorbereitung deutlich zielgerichteter."
     };
   }
   return {
     title: "Guter Startpunkt",
-    text: "Dein Fall wirkt im ersten Schritt überschaubarer. Wichtig ist trotzdem, dass Nachweise, Ablauf und Gesprächsstrategie rechtzeitig geordnet werden. Der Videozugang kann ein sinnvoller Einstieg sein."
+    text: `Dein Fall wirkt auf den ersten Blick überschaubar. Wichtig ist trotzdem, dass Nachweise, Ablauf und Gesprächsvorbereitung rechtzeitig geordnet werden. ${/^(punkte|straftat)/i.test(riskReasons[0] || "") ? "Die Videos zu Punkten und Verkehrsstraftaten sind noch in Produktion, deshalb passt derzeit ein Paket mit persönlichen Gesprächen." : "Der Videokurs kann ein sinnvoller Einstieg sein."}`
   };
 }
 
@@ -902,8 +903,8 @@ function showRiskResult() {
     const text = lang === "en"
       ? `Hello, I completed the MPU risk check. Result: ${result.title}. Answers: ${riskReasons.join(" | ")}. I would like a case assessment.`
       : lang === "ru"
-        ? `Здравствуйте, я прошел MPU-чек. Результат: ${result.title}. Ответы: ${riskReasons.join(" | ")}. Я хочу оценку моего случая.`
-        : `Hallo, ich habe den MPU-Risiko-Check gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich möchte meinen Fall einschätzen lassen.`;
+        ? `Здравствуйте, я прошёл проверку MPU. Результат: ${result.title}. Ответы: ${riskReasons.join(" | ")}. Я хочу оценку моего случая.`
+        : `Hallo, ich habe die MPU-Sofortanalyse gemacht. Ergebnis: ${result.title}. Antworten: ${riskReasons.join(" | ")}. Ich möchte meinen Fall einschätzen lassen.`;
     riskWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
   if (riskResult) riskResult.hidden = false;
@@ -947,7 +948,7 @@ function setupLocationFinder() {
       return;
     }
 
-    title.textContent = `MPU Beratung ist für ${location} online verfügbar.`;
+    title.textContent = `Deine Nachricht für ${location} ist vorbereitet.`;
     const message = `Hallo, ich wohne in ${location} und möchte meinen MPU-Fall kostenlos einordnen lassen. Mein Anlass ist: `;
     whatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     result.hidden = false;

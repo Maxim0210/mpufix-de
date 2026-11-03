@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MPU-Kostenrechner 2026 | MPUFIX.de</title>
-    <meta name="description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung und mögliche Abstinenznachweise. Grobe Orientierung für MPU in Deutschland.">
+    <meta name="description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung, Haaranalysen und Urinscreenings: Berechne einen groben Kostenrahmen für deine MPU in Deutschland.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://mpufix.de/tools/mpu-kostenrechner.html">
     <meta property="og:title" content="MPU-Kostenrechner 2026 | MPUFIX.de">
-    <meta property="og:description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung und mögliche Abstinenznachweise. Grobe Orientierung für MPU in Deutschland.">
+    <meta property="og:description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung, Haaranalysen und Urinscreenings: Berechne einen groben Kostenrahmen für deine MPU in Deutschland.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mpufix.de/tools/mpu-kostenrechner.html">
     <link rel="icon" href="../assets/mpufix-mark-clean.png" type="image/png">
-    <link rel="stylesheet" href="../styles.css?v=20260707-2">
+    <link rel="stylesheet" href="../styles.css?v=20261104">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MPU-Kostenrechner","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://mpufix.de/tools/mpu-kostenrechner.html","inLanguage":"de-DE","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}</script>
       <meta property="og:image" content="https://mpufix.de/assets/mpufix-logo-clean.png">
     <meta property="og:site_name" content="MPUFIX.de">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MPU-Kostenrechner 2026 | MPUFIX.de">
-    <meta name="twitter:description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung und mögliche Abstinenznachweise. Grobe Orientierung für MPU in Deutschland.">
+    <meta name="twitter:description" content="MPU-Kostenrechner für Begutachtung, Vorbereitung, Haaranalysen und Urinscreenings: Berechne einen groben Kostenrahmen für deine MPU in Deutschland.">
     <meta name="twitter:image" content="https://mpufix.de/assets/mpufix-logo-clean.png">
   </head>
   <body>
@@ -27,7 +27,7 @@
       <nav class="main-nav" aria-label="Hauptnavigation">
         <a href="../index.html#situationen">Situationen</a>
         <a href="../index.html#system">System</a>
-        <a href="../index.html#pakete">Pakete</a>
+        <a href="../kurse.html">Kurse</a>
         <a href="../ueber-mich.html">Über mich</a>
         <a href="../blog.html">Blog</a>
         <a href="../tools.html">Tools</a>
@@ -39,26 +39,27 @@
     </header>
     <main id="top">
       <section class="hero tools-hero compact-hero">
-        <div class="hero-grid"><div class="hero-copy"><p class="eyebrow">MPU-Kostenrechner</p><h1>Was kann deine MPU ungefähr kosten?</h1><p class="hero-text">Der Rechner zeigt dir einen groben Kostenrahmen für Begutachtung, Nachweise und Vorbereitung. Die echten Kosten hängen immer von Anlass, Fragestellung und Labor ab.</p></div><div class="hero-visual"><figure class="hero-photo"><img src="../assets/hero-mpu-desk.webp" alt="MPU Kosten und Unterlagen am Schreibtisch planen"></figure></div></div>
+        <div class="hero-grid"><div class="hero-copy"><p class="eyebrow">MPU-Kostenrechner</p><h1>Was kann deine MPU ungefähr kosten?</h1><p class="hero-text">Der Rechner zeigt dir einen groben Kostenrahmen für Begutachtung, Nachweise und Vorbereitung. Die tatsächlichen Kosten hängen von Anlass, Fragestellung, Begutachtungsstelle und Labor ab.</p></div><div class="hero-visual"><figure class="hero-photo"><img src="../assets/hero-mpu-desk.webp" alt="MPU-Kosten und Unterlagen am Schreibtisch planen"></figure></div></div>
       </section>
       <section class="section tool-section"><div class="tool-panel"><div class="tool-form">
         <label>Anlass der MPU<select id="costReason"><option value="points">Punkte oder Straftaten</option><option value="alcohol">Alkohol</option><option value="drugs">Drogen oder Cannabis</option><option value="mixed">Kombination mehrerer Themen</option></select></label>
-        <label>Vorbereitung<select id="costPrep"><option value="499">Videokurs 499 Euro</option><option value="899">Begleitung 899 Euro</option><option value="1999">Intensiv 1999 Euro</option><option value="0">Noch offen</option></select></label>
+        <label>Vorbereitung<select id="costPrep"><option value="499">Videokurs 499 Euro</option><option value="899">Video plus 2 Gespräche 899 Euro</option><option value="1999">Intensivbegleitung 1.999 Euro</option><option value="0">Noch offen</option></select></label>
         <label>Haaranalysen<input id="hairCount" type="number" min="0" max="6" value="0"></label>
         <label>Urinscreenings<input id="urineCount" type="number" min="0" max="12" value="0"></label>
         <button class="button primary" type="button" id="calculateCosts">Kostenrahmen berechnen</button>
-      </div><div class="tool-result" id="costResult"><span>Ergebnis</span><strong>Wähle deine Daten aus.</strong><p>Danach siehst du eine grobe Spanne. Für deinen echten Fall brauchst du eine individuelle Einordnung.</p></div></div>
-      <p class="source-note">Quellenstand 24. August 2026: Der Rechner nutzt die ADAC-Beispiele von rund 500 Euro für Punkte, 700 Euro für Alkohol und 800 Euro für Drogen. Für Mischfälle gibt es keine belastbare eigene Anlassspanne; deshalb wird dort der allgemeine Rahmen von 400 bis 1.100 Euro aus ADAC und TÜV NORD verwendet. Führerscheinantrag, zusätzliche Unterlagen und Auslagen sind nicht enthalten. Prüfe immer den konkreten Preis der gewählten Stelle.</p>
+      </div><div class="tool-result" id="costResult"><span>Ergebnis</span><strong>Wähle deine Daten aus.</strong><p>Danach siehst du eine grobe Spanne. Für deinen konkreten Fall brauchst du eine individuelle Einordnung.</p></div></div>
+      <p class="source-note">Was in den drei Vorbereitungsoptionen enthalten ist, steht auf den Kursseiten: <a href="../kurse/mpu-videokurs.html">Videokurs</a>, <a href="../kurse/mpu-video-plus-gespraeche.html">Video plus 2 Gespräche</a> und <a href="../kurse/mpu-intensivbegleitung.html">Intensivbegleitung</a>.</p>
+      <p class="source-note">Quellenstand 4. November 2026: Der Rechner setzt die Begutachtung bei jedem Anlass mit demselben Rahmen von 550 bis 1.100 Euro an. Diese Spanne veröffentlichen der <a href="https://www.adac.de/verkehr/rund-um-den-fuehrerschein/mpu/mpu-kosten/" target="_blank" rel="noopener">ADAC</a> und die <a href="https://www.tuev-nord.de/de/dienstleistungen/fuehrerschein-und-fahrzeug/psychologie-medizin-mpu/mpu/" target="_blank" rel="noopener">zentrale MPU-Seite von TÜV NORD</a>. Andere Seiten derselben Anbieter nennen niedrigere Werte: das <a href="https://www.tuev-nord.de/de/dienstleistungen/fuehrerschein-und-fahrzeug/psychologie-medizin-mpu/mpu/mpu-gutachten/faq-mpu/" target="_blank" rel="noopener">FAQ von TÜV NORD</a> 400 bis 960 Euro und die <a href="https://www.adac.de/verkehr/rund-um-den-fuehrerschein/mpu/ablauf/" target="_blank" rel="noopener">ADAC-Seite zum Ablauf</a> 400 bis 800 Euro. Die ADAC-Rechenbeispiele (rund 500 Euro bei 8 Punkten, 700 Euro bei Alkohol, 800 Euro bei Drogen) sind laut ADAC weder Mindest-, Durchschnitts- noch Höchstpreise. Dein Preis kann also von der angezeigten Spanne abweichen. Zur Begutachtung addiert der Rechner das gewählte Paket und die ADAC-Werte für Nachweise: 200 bis 300 Euro je Haaranalyse und 70 bis 100 Euro je Urinuntersuchung. Führerscheinantrag, zusätzliche Unterlagen und Auslagen sind nicht enthalten. Prüfe immer den konkreten Preis der gewählten Stelle.</p>
       <div class="note-card">
         <h3>Erst lesen, dann rechnen</h3>
-        <p>Der zentrale Kostenratgeber erklärt Begutachtung, Nachweise, Vorbereitung und Führerscheinantrag mit aktuellen Preisbereichen und drei Rechenbeispielen.</p>
+        <p>Der Kostenratgeber erklärt Begutachtung, Nachweise, Vorbereitung und Führerscheinantrag mit Preisbereichen und Rechenbeispielen.</p>
         <a class="button secondary" href="../blog/mpu-kosten.html">MPU-Kosten 2026 vollständig ansehen</a>
       </div>
-      <div class="gradient-cta"><div><strong>Willst du wissen, welche Kosten bei dir wirklich sinnvoll sind?</strong><span>Schick deinen Anlass und deinen geplanten MPU-Termin per WhatsApp.</span></div><a class="button light" href="https://wa.me/491624710700" target="_blank" rel="noopener">Fall kurz prüfen lassen</a></div></section>
+      <div class="gradient-cta"><div><strong>Du möchtest wissen, welche Kosten in deinem Fall anfallen können?</strong><span>Schick deinen Anlass und deinen geplanten MPU-Termin per WhatsApp.</span></div><a class="button light" href="https://wa.me/491624710700" target="_blank" rel="noopener">Fall kurz prüfen lassen</a></div></section>
     </main>
     <footer class="footer">
-      <p>&copy; 2026 MPUFIX.de. Seriöse MPU Beratung online für Deutschland.</p>
-      <nav class="footer-nav" aria-label="Footer Navigation">
+      <p>&copy; 2026 MPUFIX.de. MPU-Vorbereitung online für Deutschland. Keine Bestehensgarantie.</p>
+      <nav class="footer-nav" aria-label="Footer Navigation"><a href="../kurse.html">Kurse</a>
         <a href="../tools.html">Tools</a>
         <a href="../standorte.html">Standorte</a>
         <a href="../ueber-mich.html">Über mich</a>
@@ -69,6 +70,6 @@
         <a href="https://mvxim.pro/de">Website: MVXIM</a>
       </nav>
     </footer>
-    <script src="../app.js?v=20260824-1"></script>
+    <script src="../app.js?v=20261104"></script>
   </body>
 </html>
