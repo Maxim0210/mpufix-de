@@ -375,7 +375,6 @@ function setupMobileMenu() {
 
 setupMobileMenu();
 setupLanguageSwitcher();
-setupPrivacyNotice();
 setupFloatingWhatsappButton();
 setupFloatingCallButton();
 setupContactAttribution();
@@ -972,3 +971,50 @@ function setupPrintableChecklist() {
 
 setupLocationFinder();
 setupPrintableChecklist();
+
+// Startseite: Auswahl des Anlasses passt Brief, Text und WhatsApp-Nachricht an.
+const caseContent = {
+  alkohol: {
+    law: "§ 13 FeV",
+    question: "Ist zu erwarten, dass Sie auch künftig ein Kraftfahrzeug unter Alkoholeinfluss führen werden?",
+    text: "Bei Alkohol will der Gutachter wissen, ob du Trinken und Fahren künftig sicher trennst. Dafür zählen dein früheres Trinkverhalten, was sich seitdem geändert hat, und je nach Fall Abstinenznachweise.",
+    message: "Hallo Max, ich muss wegen Alkohol zur MPU und möchte eine kostenlose Ersteinschätzung."
+  },
+  drogen: {
+    law: "§ 13a oder § 14 FeV",
+    question: "Ist zu erwarten, dass Sie künftig ein Kraftfahrzeug unter dem Einfluss von Cannabis oder Betäubungsmitteln führen werden?",
+    text: "Bei Cannabis und Drogen geht es darum, ob du künftig nicht mehr unter Einfluss fährst. Nachweise brauchen Zeit, deshalb zählt hier ein früher Start besonders.",
+    message: "Hallo Max, ich muss wegen Cannabis oder Drogen zur MPU und möchte eine kostenlose Ersteinschätzung."
+  },
+  punkte: {
+    law: "§ 11 Abs. 3 FeV",
+    question: "Ist zu erwarten, dass Sie auch künftig erheblich oder wiederholt gegen verkehrsrechtliche Bestimmungen verstoßen werden?",
+    text: "Bei Punkten geht es um dein Verhalten am Steuer: warum es immer wieder zu Verstößen kam und welche Regeln du heute tatsächlich einhältst.",
+    message: "Hallo Max, ich muss wegen Punkten zur MPU und möchte eine kostenlose Ersteinschätzung."
+  },
+  straftat: {
+    law: "§ 11 Abs. 3 FeV",
+    question: "Ist zu erwarten, dass Sie auch künftig erheblich oder wiederholt gegen strafrechtliche Bestimmungen verstoßen werden?",
+    text: "Bei Straftaten geht es darum, ob du dich künftig an Regeln hältst und wie du heute mit Druck, Ärger und Konflikten umgehst.",
+    message: "Hallo Max, ich muss wegen einer Straftat zur MPU und möchte eine kostenlose Ersteinschätzung."
+  }
+};
+
+document.querySelectorAll("#caseSwitch button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const content = caseContent[button.dataset.case];
+    const letter = document.querySelector("#caseLetter");
+    if (!content || !letter) return;
+    document.querySelectorAll("#caseSwitch button").forEach((other) => {
+      other.setAttribute("aria-pressed", String(other === button));
+    });
+    document.querySelector("#caseText").textContent = content.text;
+    document.querySelector("#caseWhatsapp").href = createWhatsappUrl(content.message);
+    letter.classList.add("is-swapping");
+    window.setTimeout(() => {
+      document.querySelector("#caseLaw").textContent = content.law;
+      document.querySelector("#caseQuestion").textContent = content.question;
+      letter.classList.remove("is-swapping");
+    }, 160);
+  });
+});

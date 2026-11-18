@@ -1,0 +1,468 @@
+/* Startseite: Aufbau ab November 2026. Farben und Schriften kommen aus styles.css. */
+
+.home main { overflow: clip; }
+.h-wrap {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+.h-sec { padding: clamp(48px, 6vw, 84px) 0; }
+.h-sec.is-mist { background: var(--mist); }
+.h-sec h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  margin-bottom: 12px;
+  max-width: 22em;
+  text-wrap: balance;
+}
+.h-lead {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  max-width: 44em;
+}
+.h-label {
+  background: rgba(93, 39, 147, 0.09);
+  border-radius: 999px;
+  color: var(--purple);
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 14px;
+  padding: 7px 12px;
+}
+.is-dark .h-label {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.home mark {
+  background: linear-gradient(transparent 58%, var(--marker) 58% 94%, transparent 94%);
+  color: inherit;
+  padding: 0 0.06em;
+}
+
+.h-link {
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(93, 39, 147, 0.3);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.h-link:hover { text-decoration-color: currentColor; }
+.is-dark .h-link {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+.button.go { gap: 10px; }
+.button.go svg {
+  fill: none;
+  flex: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 20px;
+}
+.button.big { min-height: 52px; padding: 12px 22px; }
+
+.h-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(18px, 2.2vw, 26px);
+}
+.h-card h3 { font-size: 19px; margin-bottom: 8px; }
+.h-card p { font-size: 16px; margin: 0; }
+.h-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+.h-grid.is-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.h-grid.is-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.h-grid.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.h-source { color: var(--muted); font-size: 14px; margin: 18px 0 0; }
+
+/* Einstieg */
+.h-hero { padding: clamp(12px, 1.6vw, 20px) clamp(10px, 1.6vw, 20px) 0; }
+.h-hero-box {
+  background:
+    radial-gradient(52% 80% at 82% 30%, rgba(140, 107, 217, 0.42), transparent 70%),
+    radial-gradient(40% 60% at 8% 100%, rgba(84, 140, 202, 0.25), transparent 70%),
+    var(--night);
+  border-radius: 28px;
+  color: #fff;
+  padding: clamp(28px, 4.4vw, 60px) 0;
+}
+.h-hero-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+.h-hero-grid > * { min-width: 0; }
+.h-hero h1 {
+  color: #fff;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.06;
+  margin-bottom: 14px;
+  max-width: none;
+  text-wrap: balance;
+}
+.h-hero h1 mark { color: var(--ink); background: var(--marker); border-radius: 8px; padding: 0 0.16em; }
+.h-hero-sub {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 22px;
+  max-width: 32em;
+}
+.h-case {
+  border: 0;
+  margin: 0 0 10px;
+  min-width: 0;
+  padding: 0;
+}
+.h-case legend {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.h-case-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.h-case button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 44px;
+  padding: 8px 16px;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.h-case button:hover { background: rgba(255, 255, 255, 0.16); }
+.h-case button[aria-pressed="true"] {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+.h-case button:focus-visible,
+.h-hero a:focus-visible {
+  outline: 3px solid var(--marker);
+  outline-offset: 3px;
+}
+.h-case-text {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  max-width: 34em;
+  min-height: 3em;
+}
+.h-hero-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.h-trust {
+  color: rgba(255, 255, 255, 0.78);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  gap: 6px 18px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+.h-trust li::before { color: #7fe0a8; content: "✓ "; font-weight: 800; }
+
+/* Der Brief */
+.h-letter-wrap { position: relative; }
+.h-letter {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 30px 60px rgba(8, 3, 26, 0.45);
+  color: #26242c;
+  font: 400 13.5px/1.55 "Courier Prime", ui-monospace, monospace;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 22px 24px 24px;
+  transform: rotate(-1.2deg);
+}
+.h-letter p { color: inherit; margin-bottom: 10px; }
+.h-letter-head {
+  border-bottom: 1px solid #dcdbe2;
+  color: #6a6a72;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+.h-letter-title { font-weight: 700; }
+.h-letter-q-label {
+  color: #6a6a72;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px !important;
+  text-transform: uppercase;
+}
+.h-letter-q { font-size: 15px; line-height: 1.6; }
+.h-letter-q mark {
+  background: var(--marker);
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: var(--ink);
+  padding: 2px 3px;
+}
+.h-letter-foot { color: #6a6a72; font-size: 12.5px; margin-bottom: 0 !important; }
+.h-letter-body { transition: opacity 160ms ease; }
+.h-letter.is-swapping .h-letter-body { opacity: 0; }
+.h-note {
+  background: var(--marker);
+  border-radius: 12px 12px 12px 2px;
+  box-shadow: 0 12px 24px rgba(8, 3, 26, 0.35);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: -14px 0 0 auto;
+  max-width: 200px;
+  padding: 10px 14px;
+  position: relative;
+  transform: rotate(2deg);
+}
+.h-letter-caption {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 12px;
+  margin: 14px auto 0;
+  max-width: 400px;
+}
+
+/* Auf einen Blick */
+.h-facts {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: clamp(20px, 2.6vw, 30px) 0 0;
+}
+.h-facts li {
+  border-left: 1px solid var(--line);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 2px 18px;
+}
+.h-facts li:first-child { border-left: 0; padding-left: 0; }
+.h-facts strong {
+  color: var(--ink);
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* Schritte */
+.h-steps { counter-reset: step; list-style: none; padding: 0; }
+.h-steps li { counter-increment: step; }
+.h-steps li::before {
+  align-items: center;
+  background: rgba(93, 39, 147, 0.1);
+  border-radius: 10px;
+  color: var(--purple);
+  content: counter(step);
+  display: flex;
+  font-size: 15px;
+  font-weight: 800;
+  height: 32px;
+  justify-content: center;
+  margin-bottom: 14px;
+  width: 32px;
+}
+.h-road li:last-child::before { background: var(--go); color: #fff; }
+
+/* Die Frage je Anlass */
+.h-questions { list-style: none; padding: 0; }
+.h-questions li { display: flex; flex-direction: column; gap: 10px; }
+.h-questions h3 { margin: 0; }
+.h-questions blockquote {
+  background: var(--mist);
+  border: 0;
+  border-left: 3px solid var(--marker);
+  border-radius: 0 10px 10px 0;
+  color: var(--ink);
+  font: 400 14px/1.5 "Courier Prime", ui-monospace, monospace;
+  margin: 0;
+  padding: 10px 12px;
+}
+.h-questions .h-link { font-size: 15px; margin-top: auto; }
+.h-also { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 14px; }
+
+/* Fehler und Gegenentwurf */
+.h-versus ul { list-style: none; margin: 0; padding: 0; }
+.h-versus li {
+  font-size: 16px;
+  line-height: 1.45;
+  padding: 7px 0 7px 28px;
+  position: relative;
+}
+.h-versus li::before { font-weight: 900; left: 2px; position: absolute; top: 6px; }
+.h-versus .is-no { background: transparent; }
+.h-versus .is-no h3, .h-versus .is-no li { color: var(--muted); }
+.h-versus .is-no li::before { color: var(--red); content: "✕"; }
+.h-versus .is-yes { background: rgba(93, 39, 147, 0.06); border-color: rgba(93, 39, 147, 0.25); }
+.h-versus .is-yes li { color: var(--ink); font-weight: 600; }
+.h-versus .is-yes li::before { color: var(--go); content: "✓"; }
+
+/* Max */
+.h-dark { padding: 0 clamp(10px, 1.6vw, 20px); }
+.h-dark-box {
+  background:
+    radial-gradient(46% 80% at 90% 10%, rgba(140, 107, 217, 0.36), transparent 70%),
+    var(--night);
+  border-radius: 28px;
+  color: #fff;
+  padding: clamp(36px, 5vw, 64px) 0;
+}
+.h-dark-box h2 { color: #fff; }
+.h-dark-box p { color: rgba(255, 255, 255, 0.84); }
+.h-max-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+.h-max-grid > * { min-width: 0; }
+.h-max-copy p { font-size: 16px; margin-bottom: 12px; }
+.h-max-copy .h-plain {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  margin: 18px 0;
+  padding: 12px 14px;
+}
+.h-docs {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.h-doc {
+  background: #fff;
+  border-radius: 14px;
+  color: var(--ink);
+  margin: 0;
+  overflow: hidden;
+}
+.h-doc a { display: block; position: relative; }
+.h-doc img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+.h-doc a span {
+  background: rgba(26, 19, 48, 0.86);
+  border-radius: 999px;
+  bottom: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  position: absolute;
+  right: 8px;
+}
+.h-doc figcaption {
+  color: var(--text);
+  font-size: 13px;
+  hyphens: auto;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  padding: 10px 12px 12px;
+}
+.h-doc figcaption strong { color: var(--ink); display: block; font-size: 14px; }
+
+/* Pakete */
+.home .price-grid { gap: 16px; margin-top: clamp(24px, 3vw, 36px); }
+.home .price-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: none;
+}
+.home .price-card.featured {
+  border: 2px solid var(--purple);
+  box-shadow: 0 18px 40px rgba(93, 39, 147, 0.14);
+}
+.home .price-card h3 { font-size: 20px; }
+.home .price-card .price { font-size: 38px; letter-spacing: -0.02em; line-height: 1.1; }
+.home .price-card p, .home .price-card li { font-size: 15px; }
+
+/* Fragen und Ratgeber */
+.h-faq-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(20px, 3vw, 40px);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  margin-top: clamp(24px, 3vw, 36px);
+}
+.home .faq-list { margin: 0; }
+.home .faq-list details { border-radius: 14px; }
+.h-guides { list-style: none; margin: 0; padding: 0; }
+.h-guides li + li { border-top: 1px solid var(--line); }
+.h-guides a {
+  color: var(--ink);
+  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 10px 0;
+  text-decoration: none;
+}
+.h-guides a::after { color: var(--purple); content: "→"; }
+.h-guides a:hover { color: var(--purple); }
+
+/* Abschluss */
+.h-final { text-align: center; }
+.h-final h2 { margin-left: auto; margin-right: auto; }
+.h-final .h-lead { color: rgba(255, 255, 255, 0.84); margin: 0 auto 24px; }
+.h-final-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  justify-content: center;
+}
+
+.home .risk-section h2, .home .contact-section h2 { font-size: clamp(26px, 3vw, 38px); }
+.home [id] { scroll-margin-top: 84px; }
+
+@media (max-width: 980px) {
+  .h-hero-grid, .h-max-grid, .h-faq-grid { grid-template-columns: minmax(0, 1fr); }
+  .h-grid.is-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .h-grid.is-3 { grid-template-columns: minmax(0, 1fr); }
+  .h-facts { gap: 14px 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .h-facts li:nth-child(odd) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 620px) {
+  .h-hero-box, .h-dark-box { border-radius: 20px; }
+  .h-grid.is-2, .h-grid.is-4 { grid-template-columns: minmax(0, 1fr); }
+  .h-case-text { min-height: 0; }
+  .h-hero-actions .button, .h-final-actions .button { width: 100%; }
+  .home .chat-toggle { display: none; }
+}
+.h-dark { padding-top: clamp(12px, 1.6vw, 20px); }
