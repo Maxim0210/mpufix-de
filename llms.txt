@@ -12,6 +12,7 @@ MPUFIX.de ist ein Angebot von Max Dilewski (Sitz Tbilisi, Georgien; Postanschrif
 - Kostenlose MPU Tools: https://mpufix.de/tools.html
 - Online-Beratung deutschlandweit, auf Wunsch auch persönlich vor Ort: https://mpufix.de/standorte.html
 - MPU in Berlin, Hamburg, München, Köln und Stuttgart: Führerscheinstelle und anerkannte Begutachtungsstellen mit Adresse: https://mpufix.de/standorte/berlin.html, https://mpufix.de/standorte/hamburg.html, https://mpufix.de/standorte/muenchen.html, https://mpufix.de/standorte/koeln.html, https://mpufix.de/standorte/stuttgart.html
+- MPU-Begutachtungsstellen-Finder, alle aktiven Stellen laut BASt-Liste mit Adresse, Suche nach PLZ: https://mpufix.de/mpu-begutachtungsstellen.html
 - Kostenlose MPU-Checkliste: https://mpufix.de/mpu-checkliste.html
 - Über Max Dilewski / Nachweise: https://mpufix.de/ueber-mich.html
 - English: https://mpufix.de/en.html
